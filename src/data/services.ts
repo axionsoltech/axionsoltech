@@ -1,4 +1,12 @@
-import { Globe, Smartphone, Cloud, BrainCircuit, Palette, ShieldCheck, type LucideIcon } from 'lucide-react';
+import {
+  Globe,
+  Smartphone,
+  Cloud,
+  BrainCircuit,
+  Palette,
+  ShieldCheck,
+  type LucideIcon,
+} from 'lucide-react';
 
 export interface ServiceDetail {
   slug: string;
@@ -26,7 +34,8 @@ export const SERVICES: ServiceDetail[] = [
       'API design and backend services',
     ],
     stack: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'GraphQL'],
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+    image:
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
   },
   {
     slug: 'mobile-apps',
@@ -42,7 +51,8 @@ export const SERVICES: ServiceDetail[] = [
       'App Store / Play Store release management',
     ],
     stack: ['React Native', 'Swift', 'Kotlin', 'TypeScript', 'Firebase'],
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
+    image:
+      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
   },
   {
     slug: 'cloud-devops',
@@ -58,7 +68,8 @@ export const SERVICES: ServiceDetail[] = [
       'Monitoring, logging & incident response setup',
     ],
     stack: ['AWS', 'GCP', 'Kubernetes', 'Docker', 'Terraform', 'GitHub Actions'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    image:
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
   },
   {
     slug: 'ai-automation',
@@ -74,7 +85,8 @@ export const SERVICES: ServiceDetail[] = [
       'Data pipeline & model-serving infrastructure',
     ],
     stack: ['Python', 'PyTorch', 'LangChain', 'OpenAI API', 'Vector databases'],
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
+    image:
+      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
   },
   {
     slug: 'product-design',
@@ -90,7 +102,8 @@ export const SERVICES: ServiceDetail[] = [
       'Usability testing',
     ],
     stack: ['Figma', 'Framer', 'Storybook'],
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80',
+    image:
+      'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80',
   },
   {
     slug: 'security-qa',
@@ -106,7 +119,8 @@ export const SERVICES: ServiceDetail[] = [
       'Compliance readiness (SOC 2, GDPR)',
     ],
     stack: ['Playwright', 'Jest', 'OWASP ZAP', 'Snyk'],
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
+    image:
+      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
   },
 ];
 

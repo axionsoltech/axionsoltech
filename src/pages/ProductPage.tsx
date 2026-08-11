@@ -20,35 +20,34 @@ export default function ProductPage() {
           href={INSURADESK_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white btn-glow transition-all"
+          className="bg-accent btn-glow inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all"
         >
           Visit InsuraDesk
-          <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </PageHero>
 
-      <section className="relative pb-24 border-t border-border pt-16">
-        <div className="w-[75%] mx-auto px-4 sm:px-6 max-w-3xl">
+      <section className="border-border relative border-t pt-16 pb-24">
+        <div className="mx-auto w-[75%] max-w-3xl px-4 sm:px-6">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-text-secondary leading-relaxed text-base sm:text-lg"
+            className="text-text-secondary text-base leading-relaxed sm:text-lg"
           >
-            Most engineering studios only show you client work under NDA. InsuraDesk is
-            different — it's our own product, running in production, that we can point to
-            directly. It's a multi-tenant platform that lets insurance brokers launch their own
-            branded storefront, compare and issue policies across integrated insurers, and run
-            their entire operation — agents, customers, claims, and commissions — from one
-            system.
+            Most engineering studios only show you client work under NDA. InsuraDesk is different —
+            it's our own product, running in production, that we can point to directly. It's a
+            multi-tenant platform that lets insurance brokers launch their own branded storefront,
+            compare and issue policies across integrated insurers, and run their entire operation —
+            agents, customers, claims, and commissions — from one system.
           </motion.p>
         </div>
       </section>
 
       <section className="relative pb-24 sm:pb-32">
-        <div className="w-[75%] mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mx-auto w-[75%] px-4 sm:px-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {INSURADESK_FEATURES.map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -56,13 +55,15 @@ export default function ProductPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="card-glow rounded-2xl border border-border bg-surface p-6"
+                className="card-glow border-border bg-surface rounded-2xl border p-6"
               >
-                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                  <feature.icon className="w-5 h-5 text-accent-soft" aria-hidden="true" />
+                <div className="bg-accent/10 mb-5 flex h-11 w-11 items-center justify-center rounded-xl">
+                  <feature.icon className="text-accent-soft h-5 w-5" aria-hidden="true" />
                 </div>
-                <h3 className="font-display text-base font-semibold text-text-primary mb-2">{feature.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{feature.description}</p>
+                <h3 className="font-display text-text-primary mb-2 text-base font-semibold">
+                  {feature.title}
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>

@@ -27,53 +27,66 @@ export function Hero() {
     hidden: { y: '110%' },
     show: {
       y: 0,
-      transition: { duration: 0.8, ease: TRANSITIONS.ease, delay: 0.2 }
-    }
+      transition: { duration: 0.8, ease: TRANSITIONS.ease, delay: 0.2 },
+    },
   };
 
   return (
-    <section ref={containerRef} id="top" className="relative h-[150vh] bg-bg">
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden pt-28 pb-12">
-        <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0 bg-grid pointer-events-none" aria-hidden="true" />
+    <section ref={containerRef} id="top" className="bg-bg relative h-[150vh]">
+      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden pt-28 pb-12">
         <motion.div
           style={{ opacity: bgOpacity }}
-          className="glow-orb w-[600px] h-[600px] -top-20 left-1/2 -translate-x-1/2 pointer-events-none"
+          className="bg-grid pointer-events-none absolute inset-0"
+          aria-hidden="true"
+        />
+        <motion.div
+          style={{ opacity: bgOpacity }}
+          className="glow-orb pointer-events-none -top-20 left-1/2 h-[600px] w-[600px] -translate-x-1/2"
           aria-hidden="true"
         />
 
-        <div className="relative w-[80%] max-w-7xl mx-auto px-4 sm:px-6 z-10 flex h-full items-center mt-12">
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
+        <div className="relative z-10 mx-auto mt-12 flex h-full w-[80%] max-w-7xl items-center px-4 sm:px-6">
+          <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-20">
             {/* Text Content */}
             <motion.div
               style={{ scale: textScale, opacity: textOpacity, y: textY }}
-              className="flex flex-col items-start text-left w-full"
+              className="flex w-full flex-col items-start text-left"
             >
               {/* Eyebrow */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-surface/30 backdrop-blur-md px-4 py-1.5 text-xs text-text-secondary mb-8 shadow-sm"
+                className="border-border/50 bg-surface/30 text-text-secondary mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs shadow-sm backdrop-blur-md"
               >
-                <Sparkles className="w-3.5 h-3.5 text-accent-soft" aria-hidden="true" />
+                <Sparkles className="text-accent-soft h-3.5 w-3.5" aria-hidden="true" />
                 Software &amp; Cloud Engineering
               </motion.div>
 
               {/* Large Headline */}
-              <h1 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[0.95] mb-8 text-text-primary">
+              <h1 className="font-display text-text-primary mb-8 text-5xl leading-[0.95] font-bold tracking-tighter sm:text-7xl lg:text-[5.5rem]">
                 <div className="overflow-hidden pb-2">
                   <motion.div variants={lineVariants} initial="hidden" animate="show">
                     We engineer
                   </motion.div>
                 </div>
                 <div className="overflow-hidden pb-2">
-                  <motion.div variants={lineVariants} initial="hidden" animate="show" transition={{ delay: 0.3 }}>
+                  <motion.div
+                    variants={lineVariants}
+                    initial="hidden"
+                    animate="show"
+                    transition={{ delay: 0.3 }}
+                  >
                     <span className="text-gradient">digital platforms</span>
                   </motion.div>
                 </div>
                 <div className="overflow-hidden pb-2">
-                  <motion.div variants={lineVariants} initial="hidden" animate="show" transition={{ delay: 0.4 }}>
+                  <motion.div
+                    variants={lineVariants}
+                    initial="hidden"
+                    animate="show"
+                    transition={{ delay: 0.4 }}
+                  >
                     that scale.
                   </motion.div>
                 </div>
@@ -83,9 +96,10 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="text-lg sm:text-xl text-text-secondary max-w-lg font-medium leading-relaxed"
+                className="text-text-secondary max-w-lg text-lg leading-relaxed font-medium sm:text-xl"
               >
-                Partnering with ambitious founders and enterprises to design, build, and deploy products across web, mobile, cloud, and AI.
+                Partnering with ambitious founders and enterprises to design, build, and deploy
+                products across web, mobile, cloud, and AI.
               </motion.p>
 
               <motion.div
@@ -97,41 +111,40 @@ export function Hero() {
                 <Link
                   to="/contact"
                   data-magnetic="true"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-semibold text-white btn-glow transition-all hover:bg-accent-light"
+                  className="bg-accent btn-glow hover:bg-accent-light inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold text-white transition-all"
                 >
                   Start a project
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <a
                   href="#services"
                   data-magnetic="true"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 backdrop-blur-sm px-8 py-4 text-sm font-semibold text-text-primary transition-all hover:bg-surface"
+                  className="border-border bg-surface/50 text-text-primary hover:bg-surface inline-flex items-center gap-2 rounded-full border px-8 py-4 text-sm font-semibold backdrop-blur-sm transition-all"
                 >
                   Our Services
-                  <ChevronRight className="w-4 h-4 text-text-secondary" aria-hidden="true" />
+                  <ChevronRight className="text-text-secondary h-4 w-4" aria-hidden="true" />
                 </a>
               </motion.div>
             </motion.div>
 
             {/* Isometric Technology Visual */}
-            <div className="w-full relative z-20 flex flex-col justify-center perspective-[1200px]">
+            <div className="relative z-20 flex w-full flex-col justify-center perspective-[1200px]">
               {/* Decorative background glow for the 3D element */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+              <div className="bg-accent/5 pointer-events-none absolute top-1/2 left-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
 
               <motion.div
                 initial={{ opacity: 0, rotateY: -20, rotateX: 10, y: 40 }}
                 animate={{ opacity: 1, rotateY: -15, rotateX: 10, y: 0 }}
                 transition={{ duration: 1.5, delay: 1.0, ease: TRANSITIONS.ease }}
                 style={{ y: visualY, scale: visualScale }}
-                className="w-full transform-style-3d shadow-2xl rounded-[2rem] shadow-accent/20"
+                className="transform-style-3d shadow-accent/20 w-full rounded-[2rem] shadow-2xl"
               >
                 {/* Simulated Glass Cover for isometric depth */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent rounded-[2rem] border border-white/10 pointer-events-none z-30" />
+                <div className="pointer-events-none absolute inset-0 z-30 rounded-[2rem] border border-white/10 bg-gradient-to-tr from-white/5 to-transparent" />
                 <TechVisual />
               </motion.div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

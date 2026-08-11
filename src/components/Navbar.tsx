@@ -39,29 +39,33 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 1 }}
         className={`fixed inset-x-0 z-50 flex justify-center transition-all duration-500 ${
-          isScrolled ? 'top-4 sm:top-6 px-4' : 'top-0 py-6 sm:py-10'
+          isScrolled ? 'top-4 px-4 sm:top-6' : 'top-0 py-6 sm:py-10'
         }`}
       >
         <nav
           className={`flex items-center justify-between transition-all duration-500 ${
             isScrolled
-              ? 'w-full max-w-4xl bg-surface/85 backdrop-blur-xl border border-border-strong rounded-full px-6 py-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.5)]'
-              : 'w-[80%] max-w-7xl bg-transparent border-transparent px-0 py-0'
+              ? 'bg-surface/85 border-border-strong w-full max-w-4xl rounded-full border px-6 py-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.5)] backdrop-blur-xl'
+              : 'w-[80%] max-w-7xl border-transparent bg-transparent px-0 py-0'
           }`}
         >
-          <Link to="/" onClick={() => setMobileOpen(false)} className="shrink-0 flex items-center gap-2">
+          <Link
+            to="/"
+            onClick={() => setMobileOpen(false)}
+            className="flex shrink-0 items-center gap-2"
+          >
             <Logo />
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden items-center gap-1 md:flex">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    isActive 
-                      ? 'text-text-primary bg-white/5' 
+                  `rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                    isActive
+                      ? 'text-text-primary bg-white/5'
                       : 'text-text-secondary hover:text-text-primary hover:bg-white/5'
                   }`
                 }
@@ -73,20 +77,20 @@ export function Navbar() {
 
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white btn-glow transition-all"
+            className="bg-accent btn-glow hidden items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-all md:inline-flex"
           >
             Let's talk
-            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
 
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="md:hidden text-text-primary p-2 rounded-full bg-surface-hover/50 hover:bg-surface-hover transition-colors"
+            className="text-text-primary bg-surface-hover/50 hover:bg-surface-hover rounded-full p-2 transition-colors md:hidden"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </nav>
       </motion.header>
@@ -98,9 +102,9 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-bg/98 backdrop-blur-2xl md:hidden pt-28 px-6 pb-6 flex flex-col"
+            className="bg-bg/98 fixed inset-0 z-40 flex flex-col px-6 pt-28 pb-6 backdrop-blur-2xl md:hidden"
           >
-            <div className="flex flex-col gap-6 flex-1">
+            <div className="flex flex-1 flex-col gap-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.to}
@@ -112,7 +116,7 @@ export function Navbar() {
                     to={link.to}
                     onClick={() => setMobileOpen(false)}
                     className={({ isActive }) =>
-                      `text-3xl font-display font-medium tracking-tight ${
+                      `font-display text-3xl font-medium tracking-tight ${
                         isActive ? 'text-text-primary' : 'text-text-secondary'
                       }`
                     }
@@ -122,7 +126,7 @@ export function Navbar() {
                 </motion.div>
               ))}
             </div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -131,9 +135,9 @@ export function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-base font-semibold text-white btn-glow"
+                className="bg-accent btn-glow inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-semibold text-white"
               >
-                Start a project <ArrowUpRight className="w-5 h-5" />
+                Start a project <ArrowUpRight className="h-5 w-5" />
               </Link>
             </motion.div>
           </motion.div>

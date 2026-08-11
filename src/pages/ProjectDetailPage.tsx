@@ -21,28 +21,40 @@ export default function ProjectDetailPage() {
 
   return (
     <>
-      <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-grid" aria-hidden="true" />
-        <div className="glow-orb w-[420px] h-[420px] -top-32 left-1/2 -translate-x-1/2" aria-hidden="true" />
+      <section className="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
+        <div className="bg-grid absolute inset-0" aria-hidden="true" />
+        <div
+          className="glow-orb -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2"
+          aria-hidden="true"
+        />
 
-        <div className="relative w-[75%] mx-auto px-4 sm:px-6">
-          <Link to="/portfolio" className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary mb-8">
-            <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
+        <div className="relative mx-auto w-[75%] px-4 sm:px-6">
+          <Link
+            to="/portfolio"
+            className="text-text-secondary hover:text-text-primary mb-8 inline-flex items-center gap-1.5 text-sm"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
             All work
           </Link>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <span className="text-xs font-medium uppercase tracking-[0.15em] text-accent-soft">{project.category}</span>
-            <h1 className="mt-4 font-display text-3xl sm:text-5xl font-semibold tracking-tight text-text-primary">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="text-accent-soft text-xs font-medium tracking-[0.15em] uppercase">
+              {project.category}
+            </span>
+            <h1 className="font-display text-text-primary mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">
               {project.title}
             </h1>
-            <p className="mt-4 text-lg text-text-secondary max-w-2xl">{project.summary}</p>
+            <p className="text-text-secondary mt-4 max-w-2xl text-lg">{project.summary}</p>
           </motion.div>
         </div>
       </section>
 
-      <section className="relative pb-24 border-t border-border pt-16">
-        <div className="w-[75%] mx-auto px-4 sm:px-6 space-y-12">
+      <section className="border-border relative border-t pt-16 pb-24">
+        <div className="mx-auto w-[75%] space-y-12 px-4 sm:px-6">
           {BLOCKS.map((block, i) => (
             <motion.div
               key={block.key}
@@ -51,16 +63,21 @@ export default function ProjectDetailPage() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
             >
-              <h2 className="font-display text-lg font-semibold text-text-primary mb-3">{block.label}</h2>
+              <h2 className="font-display text-text-primary mb-3 text-lg font-semibold">
+                {block.label}
+              </h2>
               <p className="text-text-secondary leading-relaxed">{project[block.key]}</p>
             </motion.div>
           ))}
 
           <div>
-            <h2 className="font-display text-lg font-semibold text-text-primary mb-4">Stack</h2>
+            <h2 className="font-display text-text-primary mb-4 text-lg font-semibold">Stack</h2>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech) => (
-                <span key={tech} className="rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs text-text-secondary">
+                <span
+                  key={tech}
+                  className="border-border bg-surface text-text-secondary rounded-full border px-3.5 py-1.5 text-xs"
+                >
                   {tech}
                 </span>
               ))}

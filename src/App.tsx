@@ -27,17 +27,94 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
-        <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
-        <Route path="/services/:slug" element={<PageTransition><ServiceDetailPage /></PageTransition>} />
-        <Route path="/product" element={<PageTransition><ProductPage /></PageTransition>} />
-        <Route path="/portfolio" element={<PageTransition><PortfolioPage /></PageTransition>} />
-        <Route path="/portfolio/:slug" element={<PageTransition><ProjectDetailPage /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
-        <Route path="/privacy" element={<PageTransition><PrivacyPolicyPage /></PageTransition>} />
-        <Route path="/terms" element={<PageTransition><TermsOfServicePage /></PageTransition>} />
-        <Route path="*" element={<PageTransition><NotFoundPage /></PageTransition>} />
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <HomePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <PageTransition>
+              <AboutPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <PageTransition>
+              <ServicesPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services/:slug"
+          element={
+            <PageTransition>
+              <ServiceDetailPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/product"
+          element={
+            <PageTransition>
+              <ProductPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/portfolio"
+          element={
+            <PageTransition>
+              <PortfolioPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/portfolio/:slug"
+          element={
+            <PageTransition>
+              <ProjectDetailPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageTransition>
+              <ContactPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <PageTransition>
+              <PrivacyPolicyPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <PageTransition>
+              <TermsOfServicePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <PageTransition>
+              <NotFoundPage />
+            </PageTransition>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -50,7 +127,7 @@ function App() {
       <CustomCursor />
       <ScrollProgress />
       <BrowserRouter>
-        <div className="min-h-screen bg-bg flex flex-col">
+        <div className="bg-bg flex min-h-screen flex-col">
           <ScrollToTop />
           <Navbar />
           <main className="flex-1">

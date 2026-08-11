@@ -10,22 +10,26 @@ const VALUES = [
   {
     icon: Gem,
     title: 'Craftsmanship',
-    description: 'We treat every codebase like we\'re the ones maintaining it in three years — because we might be.',
+    description:
+      "We treat every codebase like we're the ones maintaining it in three years — because we might be.",
   },
   {
     icon: Eye,
     title: 'Transparency',
-    description: 'No black-box status updates. You see the same roadmap, backlog, and metrics we do.',
+    description:
+      'No black-box status updates. You see the same roadmap, backlog, and metrics we do.',
   },
   {
     icon: Rocket,
     title: 'Ownership',
-    description: 'We think in outcomes, not tickets. If something looks wrong for the business, we say so.',
+    description:
+      'We think in outcomes, not tickets. If something looks wrong for the business, we say so.',
   },
   {
     icon: Compass,
     title: 'Long-term thinking',
-    description: 'Fast is good. Fast-and-still-maintainable-in-a-year is the actual bar we hold ourselves to.',
+    description:
+      'Fast is good. Fast-and-still-maintainable-in-a-year is the actual bar we hold ourselves to.',
   },
 ];
 
@@ -40,38 +44,43 @@ export default function AboutPage() {
         description="We're a software engineering studio focused on one thing: turning ambitious product ideas into software that holds up in production."
       />
 
-      <section className="relative py-20 sm:py-28 border-t border-border">
-        <div className="w-[75%] mx-auto px-4 sm:px-6">
+      <section className="border-border relative border-t py-20 sm:py-28">
+        <div className="mx-auto w-[75%] px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-soft mb-3">Why we exist</p>
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-text-primary tracking-tight mb-6">
-              Too many software projects die in translation between what a business needs and what actually gets built.
+            <p className="text-accent-soft mb-3 text-xs font-medium tracking-[0.2em] uppercase">
+              Why we exist
+            </p>
+            <h2 className="font-display text-text-primary mb-6 text-2xl font-semibold tracking-tight sm:text-3xl">
+              Too many software projects die in translation between what a business needs and what
+              actually gets built.
             </h2>
             <p className="text-text-secondary leading-relaxed">
               Axion Sol Tech exists to close that gap. We pair senior engineering with product
               thinking, so the software we ship doesn't just match a spec — it solves the problem
-              the spec was trying to describe. That means asking hard questions early, saying no
-              to scope that doesn't serve the goal, and staying accountable for how the product
+              the spec was trying to describe. That means asking hard questions early, saying no to
+              scope that doesn't serve the goal, and staying accountable for how the product
               performs after launch, not just at handover.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="relative py-20 sm:py-28 border-t border-border">
-        <div className="w-[75%] mx-auto px-4 sm:px-6">
-          <div className="max-w-xl mb-14">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-soft mb-3">What we stand for</p>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold text-text-primary tracking-tight">
+      <section className="border-border relative border-t py-20 sm:py-28">
+        <div className="mx-auto w-[75%] px-4 sm:px-6">
+          <div className="mb-14 max-w-xl">
+            <p className="text-accent-soft mb-3 text-xs font-medium tracking-[0.2em] uppercase">
+              What we stand for
+            </p>
+            <h2 className="font-display text-text-primary text-3xl font-semibold tracking-tight sm:text-4xl">
               Our values, in practice.
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((value, i) => (
               <motion.div
                 key={value.title}
@@ -79,13 +88,15 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="card-glow rounded-2xl border border-border bg-surface p-6"
+                className="card-glow border-border bg-surface rounded-2xl border p-6"
               >
-                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                  <value.icon className="w-5 h-5 text-accent-soft" aria-hidden="true" />
+                <div className="bg-accent/10 mb-5 flex h-11 w-11 items-center justify-center rounded-xl">
+                  <value.icon className="text-accent-soft h-5 w-5" aria-hidden="true" />
                 </div>
-                <h3 className="font-display text-base font-semibold text-text-primary mb-2">{value.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{value.description}</p>
+                <h3 className="font-display text-text-primary mb-2 text-base font-semibold">
+                  {value.title}
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -94,7 +105,10 @@ export default function AboutPage() {
 
       <Process />
       <Stats />
-      <CTABand title="Want to work with us?" subtitle="We take on a limited number of engagements at a time, so we can stay hands-on with every one." />
+      <CTABand
+        title="Want to work with us?"
+        subtitle="We take on a limited number of engagements at a time, so we can stay hands-on with every one."
+      />
     </>
   );
 }

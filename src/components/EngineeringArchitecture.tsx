@@ -14,18 +14,17 @@ const nodes = [
   { id: '07', title: 'CLOUD', subtitle: 'Infrastructure', step: 5, top: '95%', left: '50%' },
 ];
 
-
 export function EngineeringArchitecture() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end']
+    offset: ['start start', 'end end'],
   });
-  
+
   const { reducedMotion } = useDevice();
   const [currentStep, setCurrentStep] = useState(-1);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (reducedMotion) {
       setCurrentStep(6);
       return;
@@ -41,77 +40,86 @@ export function EngineeringArchitecture() {
   });
 
   return (
-    <section className="bg-bg border-y border-border">
+    <section className="bg-bg border-border border-y">
       {/* 
         Mobile Layout 
         Standard vertical flow, no sticky.
       */}
-      <div className="md:hidden py-16 px-4">
+      <div className="px-4 py-16 md:hidden">
         <div className="mb-16 text-center">
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tighter mb-4 text-white">
+          <h2 className="font-display mb-4 text-4xl font-bold tracking-tighter text-white uppercase sm:text-5xl lg:text-6xl">
             How we engineer
           </h2>
-          <p className="text-text-secondary text-sm max-w-xs mx-auto">
+          <p className="text-text-secondary mx-auto max-w-xs text-sm">
             (Switch to desktop to experience the full interactive architecture viewer)
           </p>
         </div>
-        
-        <div className="flex flex-col gap-8 w-full max-w-sm mx-auto items-center relative z-20">
-          {nodes.map(node => (
-            <ArchitectureNode 
-                key={node.id} 
-                id={node.id} 
-                title={node.title} 
-                subtitle={node.subtitle} 
-                active={true}
-                isMobile={true}
+
+        <div className="relative z-20 mx-auto flex w-full max-w-sm flex-col items-center gap-8">
+          {nodes.map((node) => (
+            <ArchitectureNode
+              key={node.id}
+              id={node.id}
+              title={node.title}
+              subtitle={node.subtitle}
+              active={true}
+              isMobile={true}
             />
           ))}
         </div>
       </div>
 
       {/* Desktop Layout (Sticky/Scroll) */}
-      <div className="hidden lg:block relative" ref={containerRef} style={{ height: "400vh" }}>
-        
+      <div className="relative hidden lg:block" ref={containerRef} style={{ height: '400vh' }}>
         {/* Sticky Stage */}
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          
+        <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at center, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-          
-          <div className="w-[80%] max-w-7xl mx-auto flex items-center justify-between z-10">
-            
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at center, rgba(255,255,255,0.2) 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          />
+
+          <div className="z-10 mx-auto flex w-[80%] max-w-7xl items-center justify-between">
             {/* Left: Sticky Information Stage */}
-            <div className="w-[35%] flex flex-col justify-center">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-soft mb-6">Engineering Architecture</p>
-              <h2 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[0.95] text-text-primary mb-8">
+            <div className="flex w-[35%] flex-col justify-center">
+              <p className="text-accent-soft mb-6 text-xs font-medium tracking-[0.2em] uppercase">
+                Engineering Architecture
+              </p>
+              <h2 className="font-display text-text-primary mb-8 text-5xl leading-[0.95] font-bold tracking-tighter sm:text-7xl lg:text-[5.5rem]">
                 Engineering <br /> without <br /> the black box.
               </h2>
-              <p className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-12 max-w-lg">
-                From product architecture to production infrastructure, we design systems that are built to scale.
+              <p className="text-text-secondary mb-12 max-w-lg text-lg leading-relaxed sm:text-xl">
+                From product architecture to production infrastructure, we design systems that are
+                built to scale.
               </p>
 
               {/* Final State Text */}
-              <div 
+              <div
                 className={`transition-all duration-1000 ${
-                  currentStep >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  currentStep >= 6 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                 }`}
               >
-                <div className="inline-flex items-center gap-3 border border-accent/30 bg-accent/5 px-4 py-2 rounded-full">
-                  <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="text-sm font-mono text-accent uppercase tracking-widest">Built to scale.</span>
+                <div className="border-accent/30 bg-accent/5 inline-flex items-center gap-3 rounded-full border px-4 py-2">
+                  <div className="bg-accent h-2 w-2 animate-pulse rounded-full" />
+                  <span className="text-accent font-mono text-sm tracking-widest uppercase">
+                    Built to scale.
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Architecture Visualization */}
-            <div className="w-[60%] lg:w-[55%] relative h-[80vh] min-h-[600px]">
-              <div className="absolute inset-0 max-w-3xl mx-auto w-full">
+            <div className="relative h-[80vh] min-h-[600px] w-[60%] lg:w-[55%]">
+              <div className="absolute inset-0 mx-auto w-full max-w-3xl">
                 {/* SVG Connections Map */}
                 <ArchitectureConnections progress={scrollYProgress} />
-                
+
                 {/* Nodes Map */}
-                {nodes.map(node => (
+                {nodes.map((node) => (
                   <ArchitectureNode
                     key={node.id}
                     id={node.id}
@@ -123,7 +131,6 @@ export function EngineeringArchitecture() {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>

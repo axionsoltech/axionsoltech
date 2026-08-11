@@ -1,11 +1,11 @@
-@import "tailwindcss";
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
-@import "@fontsource/inter/700.css";
-@import "@fontsource/space-grotesk/500.css";
-@import "@fontsource/space-grotesk/600.css";
-@import "@fontsource/space-grotesk/700.css";
+@import 'tailwindcss';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
 
 @theme {
   --color-bg: #05070d;
@@ -19,8 +19,8 @@
   --color-text-primary: #f3f5fa;
   --color-text-secondary: #9aa4bd;
   --color-text-muted: #5c6480;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
 }
 
 * {
@@ -84,11 +84,7 @@ body {
   background-position:
     0 0,
     0 0;
-  mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 20%,
-    black 40%,
-    transparent 100%
-  );
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, black 40%, transparent 100%);
   animation: grid-drift 18s linear infinite;
   will-change: background-position;
 }
@@ -146,13 +142,7 @@ body {
 }
 
 .mask-fade {
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 12%,
-    black 88%,
-    transparent
-  );
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
 }
 
 /* Infinite logo/tech-stack marquee */

@@ -20,7 +20,7 @@ export function Preloader() {
         setTimeout(() => setLoading(false), 200); // Small pause at 100% before exit
       }
     };
-    
+
     requestAnimationFrame(animate);
   }, []);
 
@@ -30,21 +30,21 @@ export function Preloader() {
         <motion.div
           key="preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: "-100%" }}
+          exit={{ opacity: 0, y: '-100%' }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[200] bg-bg flex flex-col justify-between p-8 sm:p-12"
+          className="bg-bg fixed inset-0 z-[200] flex flex-col justify-between p-8 sm:p-12"
         >
           {/* Subtle grid background */}
-          <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+          <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
 
           {/* Top Line */}
-          <div className="w-full flex justify-between items-center text-xs font-mono text-text-secondary tracking-widest relative z-10">
+          <div className="text-text-secondary relative z-10 flex w-full items-center justify-between font-mono text-xs tracking-widest">
             <span>AXION SOL TECH</span>
             <span>SYSTEM_INIT</span>
           </div>
 
           {/* Center Logo */}
-          <div className="flex flex-col items-center justify-center flex-1 relative z-10">
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center">
             <motion.svg
               width="80"
               height="80"
@@ -74,18 +74,20 @@ export function Preloader() {
           </div>
 
           {/* Bottom Progress */}
-          <div className="w-full relative z-10">
-            <div className="flex justify-between items-end mb-4">
-              <span className="text-sm text-text-secondary font-display uppercase tracking-widest">Loading Experience</span>
-              <span className="text-5xl sm:text-6xl font-display font-medium text-text-primary">
+          <div className="relative z-10 w-full">
+            <div className="mb-4 flex items-end justify-between">
+              <span className="text-text-secondary font-display text-sm tracking-widest uppercase">
+                Loading Experience
+              </span>
+              <span className="font-display text-text-primary text-5xl font-medium sm:text-6xl">
                 {progress}%
               </span>
             </div>
             {/* Progress Bar */}
-            <div className="h-[1px] w-full bg-border relative overflow-hidden">
+            <div className="bg-border relative h-[1px] w-full overflow-hidden">
               <motion.div
-                className="absolute top-0 left-0 bottom-0 bg-accent"
-                initial={{ width: "0%" }}
+                className="bg-accent absolute top-0 bottom-0 left-0"
+                initial={{ width: '0%' }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.1 }}
               />

@@ -1,10 +1,10 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { PROJECTS } from "../data/projects";
-import { useDevice } from "../hooks/useDevice";
-import { MaskedReveal } from "./Reveal";
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { PROJECTS } from '../data/projects';
+import { useDevice } from '../hooks/useDevice';
+import { MaskedReveal } from './Reveal';
 
 export function CaseStudiesPreview() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,40 +12,48 @@ export function CaseStudiesPreview() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ['start start', 'end end'],
   });
 
   // Convert vertical scroll to horizontal scroll.
   // We have N projects. We want to scroll so the last project is fully visible.
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${100 * (PROJECTS.length - 1)}vw`]);
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', `-${100 * (PROJECTS.length - 1)}vw`]);
 
   return (
-    <section ref={containerRef} className="relative bg-bg" style={{ height: `${PROJECTS.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen w-full overflow-hidden pt-20 pb-10 flex flex-col">
-
+    <section
+      ref={containerRef}
+      className="bg-bg relative"
+      style={{ height: `${PROJECTS.length * 100}vh` }}
+    >
+      <div className="sticky top-0 flex h-screen w-full flex-col overflow-hidden pt-20 pb-10">
         {/* Background Base */}
-        <div className="absolute inset-0 bg-surface/20 pointer-events-none" />
+        <div className="bg-surface/20 pointer-events-none absolute inset-0" />
 
         {/* Header - Stays fixed in the sticky container */}
-        <div className="relative w-[80%] max-w-7xl mx-auto px-4 sm:px-6 shrink-0 z-20 mb-8 sm:mb-12">
-          <div className="flex justify-between items-end">
+        <div className="relative z-20 mx-auto mb-8 w-[80%] max-w-7xl shrink-0 px-4 sm:mb-12 sm:px-6">
+          <div className="flex items-end justify-between">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-soft mb-4">Case Studies</p>
-              <h2 className="font-display text-4xl sm:text-5xl font-semibold text-text-primary tracking-tight flex flex-col">
+              <p className="text-accent-soft mb-4 text-xs font-medium tracking-[0.2em] uppercase">
+                Case Studies
+              </p>
+              <h2 className="font-display text-text-primary flex flex-col text-4xl font-semibold tracking-tight sm:text-5xl">
                 <MaskedReveal delay={0.1}>Work that scales.</MaskedReveal>
               </h2>
             </div>
-            <Link to="/case-studies" className="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-soft transition-colors">
-              View all work <ArrowRight className="w-4 h-4" />
+            <Link
+              to="/case-studies"
+              className="text-accent hover:text-accent-soft hidden items-center gap-2 text-sm font-medium transition-colors sm:inline-flex"
+            >
+              View all work <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
 
         {/* Horizontal Scroll Track */}
-        <div className="flex-1 relative flex items-center">
+        <div className="relative flex flex-1 items-center">
           <motion.div
             style={!reducedMotion ? { x } : {}}
-            className="flex w-max h-full items-center"
+            className="flex h-full w-max items-center"
           >
             {PROJECTS.map((project, i) => {
               // Task 3: Image Parallax
@@ -56,33 +64,29 @@ export function CaseStudiesPreview() {
               const imageParallax = useTransform(
                 scrollYProgress,
                 [Math.max(0, start - 0.2), Math.min(1, end + 0.2)],
-                ["-15%", "15%"]
+                ['-15%', '15%']
               );
 
               return (
-                <div
-                  key={project.slug}
-                  className="w-screen flex justify-center px-4 sm:px-6"
-                >
-                  <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-end justify-between pb-10 sm:pb-20">
-
+                <div key={project.slug} className="flex w-screen justify-center px-4 sm:px-6">
+                  <div className="flex w-full max-w-7xl flex-col items-center justify-between gap-8 pb-10 sm:pb-20 lg:flex-row lg:items-end lg:gap-16">
                     {/* Left Text */}
-                    <div className="flex flex-col w-full lg:w-[40%] order-2 lg:order-1">
-                      <div className="font-mono text-sm text-text-muted mb-4 uppercase tracking-widest">
+                    <div className="order-2 flex w-full flex-col lg:order-1 lg:w-[40%]">
+                      <div className="text-text-muted mb-4 font-mono text-sm tracking-widest uppercase">
                         [0{i + 1} / 0{PROJECTS.length}]
                       </div>
 
-                      <h3 className="font-display text-4xl sm:text-6xl lg:text-[4.5rem] font-semibold text-text-primary tracking-tighter leading-[0.95] mb-6">
+                      <h3 className="font-display text-text-primary mb-6 text-4xl leading-[0.95] font-semibold tracking-tighter sm:text-6xl lg:text-[4.5rem]">
                         {project.title}
                       </h3>
 
-                      <p className="text-xl text-text-secondary leading-relaxed mb-8">
+                      <p className="text-text-secondary mb-8 text-xl leading-relaxed">
                         {project.summary}
                       </p>
 
-                      <div className="flex flex-wrap gap-4 mb-10 text-sm font-mono text-text-muted">
-                        {project.stack.slice(0, 4).map(tech => (
-                          <span key={tech} className="uppercase tracking-widest">
+                      <div className="text-text-muted mb-10 flex flex-wrap gap-4 font-mono text-sm">
+                        {project.stack.slice(0, 4).map((tech) => (
+                          <span key={tech} className="tracking-widest uppercase">
                             {tech}
                           </span>
                         ))}
@@ -90,27 +94,26 @@ export function CaseStudiesPreview() {
 
                       <Link
                         to={`/case-studies/${project.slug}`}
-                        className="inline-flex items-center gap-2 text-text-primary font-medium group w-max"
+                        className="text-text-primary group inline-flex w-max items-center gap-2 font-medium"
                       >
-                        <span className="border-b border-accent/30 pb-0.5 group-hover:border-accent transition-colors">
+                        <span className="border-accent/30 group-hover:border-accent border-b pb-0.5 transition-colors">
                           Read Case Study
                         </span>
-                        <ArrowUpRight className="w-4 h-4 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <ArrowUpRight className="text-accent h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </Link>
                     </div>
 
                     {/* Right Image with Parallax */}
-                    <div className="w-full lg:w-[60%] h-[40vh] lg:h-[65vh] relative order-1 lg:order-2 overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5">
+                    <div className="relative order-1 h-[40vh] w-full overflow-hidden rounded-[2rem] border border-white/5 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] lg:order-2 lg:h-[65vh] lg:w-[60%]">
                       <motion.img
                         style={!reducedMotion ? { y: imageParallax, scale: 1.15 } : {}}
                         src={project.image}
                         alt={`${project.title} mockup`}
-                        loading={i === 0 ? "eager" : "lazy"}
+                        loading={i === 0 ? 'eager' : 'lazy'}
                         decoding="async"
-                        className="absolute inset-0 w-full h-full object-cover object-center"
+                        className="absolute inset-0 h-full w-full object-cover object-center"
                       />
                     </div>
-
                   </div>
                 </div>
               );
@@ -119,20 +122,22 @@ export function CaseStudiesPreview() {
         </div>
 
         {/* Progress Indicator */}
-        <div className="relative w-[80%] max-w-7xl mx-auto px-4 sm:px-6 z-20 shrink-0 hidden lg:flex items-center gap-4 mt-8">
-          <div className="flex-1 h-[2px] bg-border relative overflow-hidden rounded-full">
+        <div className="relative z-20 mx-auto mt-8 hidden w-[80%] max-w-7xl shrink-0 items-center gap-4 px-4 sm:px-6 lg:flex">
+          <div className="bg-border relative h-[2px] flex-1 overflow-hidden rounded-full">
             <motion.div
-              className="absolute top-0 bottom-0 left-0 bg-accent origin-left w-full"
+              className="bg-accent absolute top-0 bottom-0 left-0 w-full origin-left"
               style={{ scaleX: useTransform(scrollYProgress, [0, 1], [0, 1]) }}
             />
           </div>
-          <div className="font-mono text-xs text-text-muted w-8 text-right">
+          <div className="text-text-muted w-8 text-right font-mono text-xs">
             <motion.span>
-              {useTransform(scrollYProgress, v => `0${Math.min(PROJECTS.length, Math.max(1, Math.ceil(v * PROJECTS.length)))}`)}
+              {useTransform(
+                scrollYProgress,
+                (v) => `0${Math.min(PROJECTS.length, Math.max(1, Math.ceil(v * PROJECTS.length)))}`
+              )}
             </motion.span>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export function Reveal({
   duration = TRANSITIONS.duration.base,
   yOffset = 30,
   once = true,
-  className = ""
+  className = '',
 }: RevealProps) {
   const { reducedMotion } = useDevice();
 
@@ -27,7 +27,7 @@ export function Reveal({
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once, margin: "-10%" }}
+        viewport={{ once, margin: '-10%' }}
         transition={{ duration, delay }}
         className={className}
       >
@@ -40,7 +40,7 @@ export function Reveal({
     <motion.div
       initial={{ opacity: 0, y: yOffset }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-10%" }}
+      viewport={{ once, margin: '-10%' }}
       transition={{ duration, delay, ease: TRANSITIONS.ease }}
       className={className}
     >
@@ -48,12 +48,7 @@ export function Reveal({
     </motion.div>
   );
 }
-export function MaskedReveal({ 
-  children, 
-  delay = 0, 
-  duration = 1.2, 
-  className = ""
-}: RevealProps) {
+export function MaskedReveal({ children, delay = 0, duration = 1.2, className = '' }: RevealProps) {
   const { reducedMotion } = useDevice();
 
   if (reducedMotion) {
@@ -63,11 +58,11 @@ export function MaskedReveal({
   return (
     <div className={`overflow-hidden ${className}`}>
       <motion.div
-        initial={{ y: "110%" }}
+        initial={{ y: '110%' }}
         whileInView={{ y: 0 }}
-        viewport={{ once: true, margin: "-10%" }}
+        viewport={{ once: true, margin: '-10%' }}
         transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
-        className="pt-2 pb-2 -mt-2 -mb-2"
+        className="-mt-2 -mb-2 pt-2 pb-2"
       >
         {children}
       </motion.div>

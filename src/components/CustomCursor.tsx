@@ -8,7 +8,7 @@ export function CustomCursor() {
   const [cursorText, setCursorText] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [magneticTarget, setMagneticTarget] = useState<HTMLElement | null>(null);
-  
+
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const springX = useSpring(cursorX, { damping: 28, stiffness: 380, mass: 0.4 });
@@ -25,7 +25,7 @@ export function CustomCursor() {
         const rect = magneticTarget.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
-        
+
         // Pull cursor 15% toward the center of the element
         targetX = e.clientX + (centerX - e.clientX) * 0.15;
         targetY = e.clientY + (centerY - e.clientY) * 0.15;
@@ -35,10 +35,10 @@ export function CustomCursor() {
       cursorY.set(targetY);
       setIsVisible(true);
     };
-    
+
     const handleOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
+
       // Check for magnetic
       const magneticEl = target.closest('[data-magnetic="true"]') as HTMLElement;
       if (magneticEl) {
@@ -54,18 +54,18 @@ export function CustomCursor() {
         setIsHovering(true);
         return;
       }
-      
+
       // Default link/button hover
       if (target.closest('a, button, [role="button"]')) {
         setCursorText(null);
         setIsHovering(true);
         return;
       }
-      
+
       setCursorText(null);
       setIsHovering(false);
     };
-    
+
     const handleLeave = () => setIsVisible(false);
 
     window.addEventListener('mousemove', handleMove);
@@ -82,7 +82,7 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference flex items-center justify-center overflow-hidden"
+      className="pointer-events-none fixed top-0 left-0 z-[9999] flex items-center justify-center overflow-hidden mix-blend-difference"
       style={{ x: springX, y: springY, translateX: '-50%', translateY: '-50%' }}
       initial={false}
       animate={{
@@ -101,7 +101,7 @@ export function CustomCursor() {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
-            className="text-black font-display text-[10px] font-bold tracking-widest text-center"
+            className="font-display text-center text-[10px] font-bold tracking-widest text-black"
             style={{ mixBlendMode: 'normal' }}
           >
             {cursorText}

@@ -22,30 +22,30 @@ export function ArchitectureConnections({ progress }: ArchitectureConnectionsPro
   const active4 = useTransform(progress, (v) => v >= 0.8);
   const active5 = useTransform(progress, (v) => v >= 0.9);
 
-  const drawStyle = (pathValue: MotionValue<number>) => 
+  const drawStyle = (pathValue: MotionValue<number>) =>
     reducedMotion ? { pathLength: 1 } : { pathLength: pathValue };
 
   const paths = [
     // PRODUCT -> FRONTEND (10 to 25)
-    { id: 1, d: "M 50,10 L 50,25", p: p1, a: active1 },
+    { id: 1, d: 'M 50,10 L 50,25', p: p1, a: active1 },
     // FRONTEND -> API (25 to 40)
-    { id: 2, d: "M 50,25 L 50,40", p: p2, a: active2 },
+    { id: 2, d: 'M 50,25 L 50,40', p: p2, a: active2 },
     // API -> BACKEND (40 to 60, left 25)
-    { id: 3, d: "M 50,40 L 50,50 L 25,50 L 25,60", p: p3, a: active3 },
+    { id: 3, d: 'M 50,40 L 50,50 L 25,50 L 25,60', p: p3, a: active3 },
     // API -> AI (40 to 60, right 75)
-    { id: 4, d: "M 50,40 L 50,50 L 75,50 L 75,60", p: p3, a: active3 },
+    { id: 4, d: 'M 50,40 L 50,50 L 75,50 L 75,60', p: p3, a: active3 },
     // BACKEND -> DATA (60 to 80, from 25 to 50)
-    { id: 5, d: "M 25,60 L 25,70 L 50,70 L 50,80", p: p4, a: active4 },
+    { id: 5, d: 'M 25,60 L 25,70 L 50,70 L 50,80', p: p4, a: active4 },
     // AI -> DATA (60 to 80, from 75 to 50)
-    { id: 6, d: "M 75,60 L 75,70 L 50,70 L 50,80", p: p4, a: active4 },
+    { id: 6, d: 'M 75,60 L 75,70 L 50,70 L 50,80', p: p4, a: active4 },
     // DATA -> CLOUD (80 to 95)
-    { id: 7, d: "M 50,80 L 50,95", p: p5, a: active5 },
+    { id: 7, d: 'M 50,80 L 50,95', p: p5, a: active5 },
   ];
 
   return (
     <div className="absolute inset-0 z-0">
       <svg
-        className="w-full h-full overflow-visible"
+        className="h-full w-full overflow-visible"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
@@ -85,7 +85,7 @@ export function ArchitectureConnections({ progress }: ArchitectureConnectionsPro
               strokeDasharray="1 15"
               initial={{ strokeDashoffset: 0 }}
               animate={{ strokeDashoffset: -32 }}
-              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+              transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
               style={{
                 opacity: path.a as any,
               }}

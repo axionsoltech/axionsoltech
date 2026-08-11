@@ -4,7 +4,7 @@ import { useDevice } from '../hooks/useDevice';
 
 export function PageTransition({ children }: { children: ReactNode }) {
   const { reducedMotion } = useDevice();
-  
+
   if (reducedMotion) {
     return (
       <motion.div

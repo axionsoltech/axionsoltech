@@ -21,30 +21,30 @@ export function ArchitectureNode({
 }: ArchitectureNodeProps) {
   return (
     <div
-      className={`${isMobile ? 'relative w-full' : 'absolute'} flex flex-col z-10 transition-all duration-700 ease-out ${!isMobile && '-translate-x-1/2 -translate-y-1/2'} ${
-        active ? 'opacity-100 scale-100' : 'opacity-30 scale-95'
+      className={`${isMobile ? 'relative w-full' : 'absolute'} z-10 flex flex-col transition-all duration-700 ease-out ${!isMobile && '-translate-x-1/2 -translate-y-1/2'} ${
+        active ? 'scale-100 opacity-100' : 'scale-95 opacity-30'
       } ${className}`}
       style={style}
     >
-      <div className="relative group">
+      <div className="group relative">
         {/* Subtle active glow */}
         <div
-          className={`absolute inset-0 bg-accent/20 blur-xl rounded-full transition-opacity duration-700 ${
+          className={`bg-accent/20 absolute inset-0 rounded-full blur-xl transition-opacity duration-700 ${
             active ? 'opacity-100' : 'opacity-0'
           }`}
         />
-        
+
         {/* Node Box */}
         <div
-          className={`relative flex flex-col items-center justify-center bg-surface/80 backdrop-blur-md border rounded-xl p-4 min-w-[160px] transition-all duration-700 ${
+          className={`bg-surface/80 relative flex min-w-[160px] flex-col items-center justify-center rounded-xl border p-4 backdrop-blur-md transition-all duration-700 ${
             active
               ? 'border-accent/60 shadow-[0_0_20px_rgba(var(--accent),0.1)]'
               : 'border-border/40'
           }`}
         >
-          <div className="flex items-center justify-between w-full mb-2">
+          <div className="mb-2 flex w-full items-center justify-between">
             <span
-              className={`text-xs font-mono transition-colors duration-700 ${
+              className={`font-mono text-xs transition-colors duration-700 ${
                 active ? 'text-accent' : 'text-text-secondary/50'
               }`}
             >
@@ -52,8 +52,10 @@ export function ArchitectureNode({
             </span>
             {/* Active indicator dot */}
             <div
-              className={`w-2 h-2 rounded-full transition-all duration-700 ${
-                active ? 'bg-accent shadow-[0_0_8px_rgba(var(--accent),0.8)]' : 'bg-surface border border-border'
+              className={`h-2 w-2 rounded-full transition-all duration-700 ${
+                active
+                  ? 'bg-accent shadow-[0_0_8px_rgba(var(--accent),0.8)]'
+                  : 'bg-surface border-border border'
               }`}
             />
           </div>
@@ -66,7 +68,7 @@ export function ArchitectureNode({
           </h3>
           {subtitle && (
             <p
-              className={`text-xs uppercase tracking-widest mt-1 transition-colors duration-700 ${
+              className={`mt-1 text-xs tracking-widest uppercase transition-colors duration-700 ${
                 active ? 'text-text-secondary' : 'text-text-secondary/50'
               }`}
             >

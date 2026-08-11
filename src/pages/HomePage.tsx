@@ -27,14 +27,14 @@ export default function HomePage() {
       <HighlightsMarquee />
       <Stats />
       <ServicesGrid services={SERVICES} />
-      
+
       <EngineeringArchitecture />
-      
+
       <OurProduct />
 
       <Industries />
       <CaseStudiesPreview />
-      
+
       <EngagementModels />
       <WhyUs />
       <FAQ />

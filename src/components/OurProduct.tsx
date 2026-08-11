@@ -1,31 +1,50 @@
-import { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { ArrowUpRight, ArrowRight, Layers3, ShieldCheck, Shield, Lock, Sparkles, Activity, Users, Database, LayoutDashboard, Settings, CreditCard, FileText, Bell, Search, CheckCircle2, MoreHorizontal } from "lucide-react";
+import { useRef, useState } from 'react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Layers3,
+  ShieldCheck,
+  Shield,
+  Lock,
+  Sparkles,
+  Activity,
+  Users,
+  Database,
+  LayoutDashboard,
+  Settings,
+  CreditCard,
+  FileText,
+  Bell,
+  Search,
+  CheckCircle2,
+  MoreHorizontal,
+} from 'lucide-react';
 
-import { useDevice } from "../hooks/useDevice";
+import { useDevice } from '../hooks/useDevice';
 
 const HIGHLIGHTS = [
   {
-    title: "Multi-tenant by design",
-    description: "Run one platform for many brands without duplicating workflows.",
+    title: 'Multi-tenant by design',
+    description: 'Run one platform for many brands without duplicating workflows.',
     icon: Layers3,
   },
   {
-    title: "Production-ready integrations",
-    description: "Connect insurer systems and customer journeys in real time.",
+    title: 'Production-ready integrations',
+    description: 'Connect insurer systems and customer journeys in real time.',
     icon: ShieldCheck,
   },
   {
-    title: "Built for scale",
-    description: "Support brokers, agents, and customers from a single experience.",
+    title: 'Built for scale',
+    description: 'Support brokers, agents, and customers from a single experience.',
     icon: Sparkles,
   },
 ];
 
 const SIDEBAR_ITEMS = [
-  { icon: LayoutDashboard, label: "Dashboard", path: "dashboard" },
-  { icon: Users, label: "Customers", path: "customers" },
-  { icon: Settings, label: "Settings", path: "settings" },
+  { icon: LayoutDashboard, label: 'Dashboard', path: 'dashboard' },
+  { icon: Users, label: 'Customers', path: 'customers' },
+  { icon: Settings, label: 'Settings', path: 'settings' },
 ];
 
 export function OurProduct() {
@@ -35,13 +54,13 @@ export function OurProduct() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"]
+    offset: ['start start', 'end end'],
   });
 
   // Calculate horizontal scroll for 3 screens (0 to -66.666%)
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-66.666%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-66.666%']);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (latest < 0.33) setActiveIndex(0);
     else if (latest < 0.66) setActiveIndex(1);
     else setActiveIndex(2);
@@ -50,140 +69,172 @@ export function OurProduct() {
   return (
     <>
       {/* Increase height to allow scrolling through 3 screens */}
-      <section ref={sectionRef} className="relative bg-surface" style={{ height: '300vh' }}>
-
+      <section ref={sectionRef} className="bg-surface relative" style={{ height: '300vh' }}>
         {/* Sticky Container */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col py-16 sm:py-24">
-          <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
-          <div className="glow-orb w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-40" aria-hidden="true" />
+        <div className="sticky top-0 flex h-screen w-full flex-col overflow-hidden py-16 sm:py-24">
+          <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
+          <div
+            className="glow-orb pointer-events-none top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 opacity-40"
+            aria-hidden="true"
+          />
 
-          <div className="relative w-[80%] max-w-7xl mx-auto flex-1 flex flex-col z-10">
-
+          <div className="relative z-10 mx-auto flex w-[80%] max-w-7xl flex-1 flex-col">
             {/* Header Section (Fades out slightly as you scroll down) */}
             <motion.div
               style={{ opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0.3]) }}
-              className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12 shrink-0"
+              className="mb-12 flex shrink-0 flex-col items-end justify-between gap-6 md:flex-row"
             >
               <div className="max-w-2xl">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-soft mb-4">Our Product</p>
-                <h2 className="font-display text-4xl sm:text-5xl font-semibold text-text-primary tracking-tight leading-[1.1] mb-4">
+                <p className="text-accent-soft mb-4 text-xs font-medium tracking-[0.2em] uppercase">
+                  Our Product
+                </p>
+                <h2 className="font-display text-text-primary mb-4 text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
                   We run our own <span className="text-text-secondary">software.</span>
                 </h2>
-                <p className="text-base text-text-secondary leading-relaxed hidden sm:block">
-                  Nexus is our white-label SaaS platform. It's the clearest example of how we think: practical, scalable, and built for real-world operations.
+                <p className="text-text-secondary hidden text-base leading-relaxed sm:block">
+                  Nexus is our white-label SaaS platform. It's the clearest example of how we think:
+                  practical, scalable, and built for real-world operations.
                 </p>
 
-                <a href="#" className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 mt-6 text-sm font-medium text-white btn-glow transition-all">
+                <a
+                  href="#"
+                  className="bg-accent btn-glow mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all"
+                >
                   <span>View Live Demo</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </motion.div>
 
             {/* Browser Frame & Product Visual */}
-            <div className="relative w-full flex-1 min-h-0 rounded-2xl sm:rounded-[2rem] border border-border-strong bg-[#0B0F1A] shadow-[0_30px_100px_-20px_rgba(59,130,246,0.25)] flex flex-col overflow-hidden">
-
+            <div className="border-border-strong relative flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-2xl border bg-[#0B0F1A] shadow-[0_30px_100px_-20px_rgba(59,130,246,0.25)] sm:rounded-[2rem]">
               {/* Browser Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-border-strong bg-[#0a0d17] shrink-0">
+              <div className="border-border-strong flex shrink-0 items-center justify-between border-b bg-[#0a0d17] px-6 py-4">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  <div className="h-3 w-3 rounded-full bg-red-500/80" />
+                  <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
+                  <div className="h-3 w-3 rounded-full bg-green-500/80" />
                 </div>
 
                 {/* URL Bar */}
-                <div className="flex-1 mx-4 max-w-xl bg-surface-light/30 border border-white/5 rounded-md flex items-center justify-center py-1.5 px-3">
-                  <span className="text-xs text-text-muted font-mono flex items-center gap-2">
-                    <Lock className="w-3 h-3 text-accent-soft" />
+                <div className="bg-surface-light/30 mx-4 flex max-w-xl flex-1 items-center justify-center rounded-md border border-white/5 px-3 py-1.5">
+                  <span className="text-text-muted flex items-center gap-2 font-mono text-xs">
+                    <Lock className="text-accent-soft h-3 w-3" />
                     <span>nexus.app/{SIDEBAR_ITEMS[activeIndex].path}</span>
                   </span>
                 </div>
 
                 {/* Profile */}
                 <div className="flex items-center gap-4">
-                  <Bell className="w-4 h-4 text-text-muted hover:text-white transition-colors cursor-pointer" />
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-accent to-purple-500 border-2 border-[#0a0d17] ring-1 ring-white/10" />
+                  <Bell className="text-text-muted h-4 w-4 cursor-pointer transition-colors hover:text-white" />
+                  <div className="from-accent h-7 w-7 rounded-full border-2 border-[#0a0d17] bg-gradient-to-tr to-purple-500 ring-1 ring-white/10" />
                 </div>
               </div>
 
               {/* Product UI Mockup */}
-              <div className="flex-1 min-h-0 flex overflow-hidden bg-[#0B0F1A] relative border border-white/5 shadow-2xl rounded-b-2xl sm:rounded-b-[2rem]">
-              
+              <div className="relative flex min-h-0 flex-1 overflow-hidden rounded-b-2xl border border-white/5 bg-[#0B0F1A] shadow-2xl sm:rounded-b-[2rem]">
                 {/* Sidebar Mock (Static) */}
-                <div className="hidden md:flex flex-col gap-8 border-r border-border-strong pr-6 pl-8 py-8 w-64 shrink-0 bg-[#0B0F1A] z-20">
-                  <div className="p-4 border-b border-border/50 flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0">
-                      <Shield className="w-4 h-4 text-accent" />
+                <div className="border-border-strong z-20 hidden w-64 shrink-0 flex-col gap-8 border-r bg-[#0B0F1A] py-8 pr-6 pl-8 md:flex">
+                  <div className="border-border/50 flex items-center gap-3 border-b p-4">
+                    <div className="bg-accent/20 border-accent/30 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border">
+                      <Shield className="text-accent h-4 w-4" />
                     </div>
-                    <span className="font-semibold text-white tracking-wide">Nexus</span>
+                    <span className="font-semibold tracking-wide text-white">Nexus</span>
                   </div>
                   <div className="flex flex-col gap-2">
                     {SIDEBAR_ITEMS.map((item, i) => {
                       const isActive = activeIndex === i;
                       return (
-                        <div key={i} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${isActive ? 'bg-accent/10 text-accent border border-accent/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' : 'text-text-secondary hover:text-white hover:bg-surface-hover/50 border border-transparent'}`}>
-                          <item.icon className="w-4 h-4" /> {item.label}
+                        <div
+                          key={i}
+                          className={`flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${isActive ? 'bg-accent/10 text-accent border-accent/20 border shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' : 'text-text-secondary hover:bg-surface-hover/50 border border-transparent hover:text-white'}`}
+                        >
+                          <item.icon className="h-4 w-4" /> {item.label}
                         </div>
                       );
                     })}
-                    <div className="mt-8 pt-8 border-t border-white/5 flex flex-col gap-2">
-                      <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:text-white hover:bg-surface-hover/50 text-sm font-medium transition-colors cursor-pointer">
-                        <CreditCard className="w-4 h-4" /> Billing
+                    <div className="mt-8 flex flex-col gap-2 border-t border-white/5 pt-8">
+                      <div className="text-text-secondary hover:bg-surface-hover/50 flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:text-white">
+                        <CreditCard className="h-4 w-4" /> Billing
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Main Content Mock (Horizontal Scroll Track) */}
-                <div className="flex-1 overflow-hidden relative">
+                <div className="relative flex-1 overflow-hidden">
                   <motion.div
                     className="flex h-full"
-                    style={{ width: "300%", x: reducedMotion ? 0 : x }}
+                    style={{ width: '300%', x: reducedMotion ? 0 : x }}
                   >
-
                     {/* SCREEN 1: DASHBOARD */}
-                    <div className="w-1/3 h-full p-6 lg:p-8 flex flex-col gap-6">
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-6">
+                    <div className="flex h-full w-1/3 flex-col gap-6 p-6 lg:p-8">
+                      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-6">
                         {[
-                          { icon: Activity, val: "99.99%", label: "Uptime", trend: "+0.01%" },
-                          { icon: Users, val: "1.2M", label: "Active Users", trend: "+12.5%" },
-                          { icon: Database, val: "4.5PB", label: "Data Processed", trend: "+4.2%" }
+                          { icon: Activity, val: '99.99%', label: 'Uptime', trend: '+0.01%' },
+                          { icon: Users, val: '1.2M', label: 'Active Users', trend: '+12.5%' },
+                          { icon: Database, val: '4.5PB', label: 'Data Processed', trend: '+4.2%' },
                         ].map((stat, i) => (
-                          <div key={i} className="p-5 lg:p-6 rounded-2xl border border-white/5 bg-white/[0.02] flex flex-col gap-3 relative overflow-hidden group hover:bg-white/[0.04] transition-colors">
+                          <div
+                            key={i}
+                            className="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 transition-colors hover:bg-white/[0.04] lg:p-6"
+                          >
                             <div className="absolute top-0 right-0 p-5">
-                              <span className="text-[10px] font-mono text-green-400 bg-green-400/10 border border-green-400/20 px-2 py-1 rounded-full">{stat.trend}</span>
+                              <span className="rounded-full border border-green-400/20 bg-green-400/10 px-2 py-1 font-mono text-[10px] text-green-400">
+                                {stat.trend}
+                              </span>
                             </div>
-                            <stat.icon className="w-5 h-5 text-accent shadow-accent" />
+                            <stat.icon className="text-accent shadow-accent h-5 w-5" />
                             <div className="mt-2">
-                              <div className="text-3xl font-display font-semibold text-white mb-1 tracking-tight">{stat.val}</div>
-                              <div className="text-xs text-text-secondary font-medium">{stat.label}</div>
+                              <div className="font-display mb-1 text-3xl font-semibold tracking-tight text-white">
+                                {stat.val}
+                              </div>
+                              <div className="text-text-secondary text-xs font-medium">
+                                {stat.label}
+                              </div>
                             </div>
                           </div>
                         ))}
                       </div>
 
-                      <div className="flex-1 rounded-2xl border border-white/5 bg-white/[0.02] p-6 lg:p-8 flex flex-col relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
+                      <div className="group relative flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-6 lg:p-8">
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
 
-                        <div className="flex justify-between items-start mb-8 relative z-10">
+                        <div className="relative z-10 mb-8 flex items-start justify-between">
                           <div>
-                            <h4 className="text-white font-medium text-lg tracking-tight mb-1">System Load</h4>
-                            <p className="text-xs text-text-secondary">Requests per minute (thousands)</p>
+                            <h4 className="mb-1 text-lg font-medium tracking-tight text-white">
+                              System Load
+                            </h4>
+                            <p className="text-text-secondary text-xs">
+                              Requests per minute (thousands)
+                            </p>
                           </div>
-                          <div className="flex gap-2 p-1 rounded-lg bg-surface-hover/50 border border-white/5">
-                            <span className="text-xs font-medium px-3 py-1.5 rounded bg-transparent hover:bg-white/5 text-text-muted cursor-pointer transition-colors">1H</span>
-                            <span className="text-xs font-medium px-3 py-1.5 rounded bg-accent/20 border border-accent/30 text-accent cursor-pointer shadow-[0_0_10px_rgba(var(--accent),0.2)]">24H</span>
-                            <span className="text-xs font-medium px-3 py-1.5 rounded bg-transparent hover:bg-white/5 text-text-muted cursor-pointer transition-colors">7D</span>
+                          <div className="bg-surface-hover/50 flex gap-2 rounded-lg border border-white/5 p-1">
+                            <span className="text-text-muted cursor-pointer rounded bg-transparent px-3 py-1.5 text-xs font-medium transition-colors hover:bg-white/5">
+                              1H
+                            </span>
+                            <span className="bg-accent/20 border-accent/30 text-accent cursor-pointer rounded border px-3 py-1.5 text-xs font-medium shadow-[0_0_10px_rgba(var(--accent),0.2)]">
+                              24H
+                            </span>
+                            <span className="text-text-muted cursor-pointer rounded bg-transparent px-3 py-1.5 text-xs font-medium transition-colors hover:bg-white/5">
+                              7D
+                            </span>
                           </div>
                         </div>
 
-                        <div className="flex-1 flex items-end gap-3 sm:gap-6 relative z-10 mt-4">
+                        <div className="relative z-10 mt-4 flex flex-1 items-end gap-3 sm:gap-6">
                           {[40, 70, 45, 90, 65, 80, 50, 100, 85, 60, 75, 45].map((h, i) => (
-                            <div key={i} className="flex-1 relative h-full flex items-end group/bar">
-                              <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-surface border border-white/10 shadow-xl text-xs font-mono text-white px-3 py-1.5 rounded opacity-0 group-hover/bar:opacity-100 group-hover/bar:-translate-y-2 transition-all pointer-events-none whitespace-nowrap z-20">
+                            <div
+                              key={i}
+                              className="group/bar relative flex h-full flex-1 items-end"
+                            >
+                              <div className="bg-surface pointer-events-none absolute -top-10 left-1/2 z-20 -translate-x-1/2 rounded border border-white/10 px-3 py-1.5 font-mono text-xs whitespace-nowrap text-white opacity-0 shadow-xl transition-all group-hover/bar:-translate-y-2 group-hover/bar:opacity-100">
                                 {h}k reqs
                               </div>
-                              <div className="w-full bg-gradient-to-t from-accent/10 to-accent/40 rounded-t border-t border-accent/60 group-hover/bar:to-accent/60 group-hover/bar:border-accent transition-colors shadow-[0_0_15px_rgba(var(--accent),0.1)] group-hover/bar:shadow-[0_0_20px_rgba(var(--accent),0.4)]" style={{ height: `${h}%` }} />
+                              <div
+                                className="from-accent/10 to-accent/40 border-accent/60 group-hover/bar:to-accent/60 group-hover/bar:border-accent w-full rounded-t border-t bg-gradient-to-t shadow-[0_0_15px_rgba(var(--accent),0.1)] transition-colors group-hover/bar:shadow-[0_0_20px_rgba(var(--accent),0.4)]"
+                                style={{ height: `${h}%` }}
+                              />
                             </div>
                           ))}
                         </div>
@@ -191,43 +242,84 @@ export function OurProduct() {
                     </div>
 
                     {/* SCREEN 2: CUSTOMERS */}
-                    <div className="w-1/3 h-full p-6 lg:p-8 flex flex-col gap-6">
-                      <div className="flex justify-between items-center bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                        <h4 className="text-white font-medium text-lg tracking-tight">Active Customers</h4>
-                        <button className="bg-accent text-white px-4 py-2 rounded-lg text-sm font-medium shadow-[0_0_15px_rgba(var(--accent),0.3)]">Add Customer</button>
+                    <div className="flex h-full w-1/3 flex-col gap-6 p-6 lg:p-8">
+                      <div className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-4">
+                        <h4 className="text-lg font-medium tracking-tight text-white">
+                          Active Customers
+                        </h4>
+                        <button className="bg-accent rounded-lg px-4 py-2 text-sm font-medium text-white shadow-[0_0_15px_rgba(var(--accent),0.3)]">
+                          Add Customer
+                        </button>
                       </div>
 
-                      <div className="flex-1 rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden flex flex-col">
-                        <div className="grid grid-cols-4 gap-4 p-4 border-b border-white/5 text-xs font-medium text-text-muted uppercase tracking-wider bg-white/[0.01]">
+                      <div className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02]">
+                        <div className="text-text-muted grid grid-cols-4 gap-4 border-b border-white/5 bg-white/[0.01] p-4 text-xs font-medium tracking-wider uppercase">
                           <div className="col-span-2">Customer</div>
                           <div>Plan</div>
                           <div>Status</div>
                         </div>
                         <div className="flex flex-col overflow-y-auto">
                           {[
-                            { name: "Acme Corp", email: "contact@acme.inc", plan: "Enterprise", status: "Active" },
-                            { name: "Global Logistics", email: "sysadmin@globallogistics.com", plan: "Pro", status: "Active" },
-                            { name: "Stark Industries", email: "tony@stark.com", plan: "Enterprise", status: "Warning" },
-                            { name: "Wayne Enterprises", email: "it@wayne.com", plan: "Pro", status: "Active" },
-                            { name: "Cyberdyne", email: "root@skynet.com", plan: "Starter", status: "Error" },
+                            {
+                              name: 'Acme Corp',
+                              email: 'contact@acme.inc',
+                              plan: 'Enterprise',
+                              status: 'Active',
+                            },
+                            {
+                              name: 'Global Logistics',
+                              email: 'sysadmin@globallogistics.com',
+                              plan: 'Pro',
+                              status: 'Active',
+                            },
+                            {
+                              name: 'Stark Industries',
+                              email: 'tony@stark.com',
+                              plan: 'Enterprise',
+                              status: 'Warning',
+                            },
+                            {
+                              name: 'Wayne Enterprises',
+                              email: 'it@wayne.com',
+                              plan: 'Pro',
+                              status: 'Active',
+                            },
+                            {
+                              name: 'Cyberdyne',
+                              email: 'root@skynet.com',
+                              plan: 'Starter',
+                              status: 'Error',
+                            },
                           ].map((cust, i) => (
-                            <div key={i} className="grid grid-cols-4 gap-4 p-4 border-b border-white/5 items-center hover:bg-white/[0.02] transition-colors cursor-pointer group">
+                            <div
+                              key={i}
+                              className="group grid cursor-pointer grid-cols-4 items-center gap-4 border-b border-white/5 p-4 transition-colors hover:bg-white/[0.02]"
+                            >
                               <div className="col-span-2 flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs text-white font-bold">{cust.name[0]}</div>
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-xs font-bold text-white">
+                                  {cust.name[0]}
+                                </div>
                                 <div>
-                                  <div className="text-sm font-medium text-white group-hover:text-accent transition-colors">{cust.name}</div>
-                                  <div className="text-xs text-text-secondary">{cust.email}</div>
+                                  <div className="group-hover:text-accent text-sm font-medium text-white transition-colors">
+                                    {cust.name}
+                                  </div>
+                                  <div className="text-text-secondary text-xs">{cust.email}</div>
                                 </div>
                               </div>
-                              <div className="text-sm text-text-secondary">{cust.plan}</div>
+                              <div className="text-text-secondary text-sm">{cust.plan}</div>
                               <div className="flex items-center justify-between pr-4">
-                                <span className={`text-[10px] font-mono px-2 py-1 rounded-full border ${cust.status === 'Active' ? 'text-green-400 bg-green-400/10 border-green-400/20' :
-                                    cust.status === 'Warning' ? 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20' :
-                                      'text-red-400 bg-red-400/10 border-red-400/20'
-                                  }`}>
+                                <span
+                                  className={`rounded-full border px-2 py-1 font-mono text-[10px] ${
+                                    cust.status === 'Active'
+                                      ? 'border-green-400/20 bg-green-400/10 text-green-400'
+                                      : cust.status === 'Warning'
+                                        ? 'border-yellow-400/20 bg-yellow-400/10 text-yellow-400'
+                                        : 'border-red-400/20 bg-red-400/10 text-red-400'
+                                  }`}
+                                >
                                   {cust.status}
                                 </span>
-                                <MoreHorizontal className="w-4 h-4 text-text-muted opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <MoreHorizontal className="text-text-muted h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
                               </div>
                             </div>
                           ))}
@@ -236,69 +328,86 @@ export function OurProduct() {
                     </div>
 
                     {/* SCREEN 3: SETTINGS */}
-                    <div className="w-1/3 h-full p-6 lg:p-8 flex flex-col gap-6">
+                    <div className="flex h-full w-1/3 flex-col gap-6 p-6 lg:p-8">
                       <div className="border-b border-white/5 pb-6">
-                        <h4 className="text-white font-medium text-lg tracking-tight mb-2">Organization Settings</h4>
-                        <p className="text-sm text-text-secondary">Manage your team and platform configuration.</p>
+                        <h4 className="mb-2 text-lg font-medium tracking-tight text-white">
+                          Organization Settings
+                        </h4>
+                        <p className="text-text-secondary text-sm">
+                          Manage your team and platform configuration.
+                        </p>
                       </div>
 
-                      <div className="flex-1 flex flex-col gap-6">
+                      <div className="flex flex-1 flex-col gap-6">
                         <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-6">
-                          <h5 className="text-white font-medium mb-4">API Configuration</h5>
+                          <h5 className="mb-4 font-medium text-white">API Configuration</h5>
                           <div className="flex flex-col gap-4">
-                            <div className="flex justify-between items-center">
+                            <div className="flex items-center justify-between">
                               <div>
-                                <div className="text-sm text-white font-medium">Production Environment</div>
-                                <div className="text-xs text-text-secondary">Enable live traffic routing to production clusters</div>
+                                <div className="text-sm font-medium text-white">
+                                  Production Environment
+                                </div>
+                                <div className="text-text-secondary text-xs">
+                                  Enable live traffic routing to production clusters
+                                </div>
                               </div>
-                              <div className="w-10 h-6 bg-accent rounded-full relative shadow-[0_0_10px_rgba(var(--accent),0.5)]">
-                                <div className="absolute right-1 top-1 w-4 h-4 bg-white rounded-full" />
+                              <div className="bg-accent relative h-6 w-10 rounded-full shadow-[0_0_10px_rgba(var(--accent),0.5)]">
+                                <div className="absolute top-1 right-1 h-4 w-4 rounded-full bg-white" />
                               </div>
                             </div>
-                            <div className="w-full h-px bg-white/5 my-2" />
-                            <div className="flex justify-between items-center">
+                            <div className="my-2 h-px w-full bg-white/5" />
+                            <div className="flex items-center justify-between">
                               <div>
-                                <div className="text-sm text-white font-medium">Auto-scaling</div>
-                                <div className="text-xs text-text-secondary">Automatically provision instances during traffic spikes</div>
+                                <div className="text-sm font-medium text-white">Auto-scaling</div>
+                                <div className="text-text-secondary text-xs">
+                                  Automatically provision instances during traffic spikes
+                                </div>
                               </div>
-                              <div className="w-10 h-6 bg-accent rounded-full relative shadow-[0_0_10px_rgba(var(--accent),0.5)]">
-                                <div className="absolute right-1 top-1 w-4 h-4 bg-white rounded-full" />
+                              <div className="bg-accent relative h-6 w-10 rounded-full shadow-[0_0_10px_rgba(var(--accent),0.5)]">
+                                <div className="absolute top-1 right-1 h-4 w-4 rounded-full bg-white" />
                               </div>
                             </div>
                           </div>
                         </div>
 
                         <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-6">
-                          <h5 className="text-white font-medium mb-4">Danger Zone</h5>
-                          <div className="p-4 rounded-xl border border-red-500/20 bg-red-500/5 flex justify-between items-center">
+                          <h5 className="mb-4 font-medium text-white">Danger Zone</h5>
+                          <div className="flex items-center justify-between rounded-xl border border-red-500/20 bg-red-500/5 p-4">
                             <div>
-                              <div className="text-sm text-red-400 font-medium">Delete Organization</div>
-                              <div className="text-xs text-text-secondary mt-1">Permanently delete all data and configuration</div>
+                              <div className="text-sm font-medium text-red-400">
+                                Delete Organization
+                              </div>
+                              <div className="text-text-secondary mt-1 text-xs">
+                                Permanently delete all data and configuration
+                              </div>
                             </div>
-                            <button className="bg-red-500/10 text-red-400 border border-red-500/20 px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-500 hover:text-white transition-colors">Delete</button>
+                            <button className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-2 text-sm font-medium text-red-400 transition-colors hover:bg-red-500 hover:text-white">
+                              Delete
+                            </button>
                           </div>
                         </div>
                       </div>
                     </div>
-
                   </motion.div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* Highlights (Standard scrolling section after sticky finishes) */}
-      <section className="bg-surface pt-16 sm:pt-32 pb-16 sm:pb-32 relative z-10 border-b border-border">
-        <div className="w-[80%] max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-3 gap-6">
+      <section className="bg-surface border-border relative z-10 border-b pt-16 pb-16 sm:pt-32 sm:pb-32">
+        <div className="mx-auto w-[80%] max-w-7xl px-4 sm:px-6">
+          <div className="grid gap-6 sm:grid-cols-3">
             {HIGHLIGHTS.map(({ title, description, icon: Icon }) => (
-              <div key={title} className="p-6 rounded-2xl border border-border bg-surface hover:bg-surface-hover transition-colors">
-                <Icon className="h-6 w-6 text-accent-soft mb-4" />
-                <h3 className="font-medium text-text-primary mb-2">{title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{description}</p>
+              <div
+                key={title}
+                className="border-border bg-surface hover:bg-surface-hover rounded-2xl border p-6 transition-colors"
+              >
+                <Icon className="text-accent-soft mb-4 h-6 w-6" />
+                <h3 className="text-text-primary mb-2 font-medium">{title}</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">{description}</p>
               </div>
             ))}
           </div>

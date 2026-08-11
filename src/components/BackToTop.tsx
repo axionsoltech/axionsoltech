@@ -37,9 +37,9 @@ export function BackToTop() {
           transition={{ duration: 0.25, ease: 'easeOut' }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-surface border border-border-strong flex items-center justify-center text-text-secondary hover:text-accent-soft hover:border-accent-dim btn-glow transition-colors"
+          className="bg-surface border-border-strong text-text-secondary hover:text-accent-soft hover:border-accent-dim btn-glow fixed right-6 bottom-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border transition-colors"
         >
-          <ArrowUp className="w-4 h-4" aria-hidden="true" />
+          <ArrowUp className="h-4 w-4" aria-hidden="true" />
         </motion.button>
       )}
     </AnimatePresence>
