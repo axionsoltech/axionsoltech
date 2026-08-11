@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+
+@theme {
+  --color-bg: #05070d;
+  --color-surface: #0b0f1a;
+  --color-surface-hover: #10162a;
+  --color-border: #1b2233;
+  --color-border-strong: #2a3350;
+  --color-accent: #3b82f6;
+  --color-accent-soft: #60a5fa;
+  --color-accent-dim: #1d4ed8;
+  --color-text-primary: #f3f5fa;
+  --color-text-secondary: #9aa4bd;
+  --color-text-muted: #5c6480;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(59, 130, 246, 0.35);
+}
+
+/* Global Focus Styles for Keyboard Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+}
+
+/* Radial blue glow used behind hero/section headers */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(59, 130, 246, 0.05) 45%,
+    transparent 75%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Faint grid backdrop for the hero section */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position:
+    0 0,
+    0 0;
+  mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 20%,
+    black 40%,
+    transparent 100%
+  );
+  animation: grid-drift 18s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes grid-drift {
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      56px 56px,
+      56px 56px;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, #ffffff 0%, #b9c6f2 60%, #6d8bdb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-glow {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.card-glow:hover {
+  border-color: var(--color-accent-dim);
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.15),
+    0 20px 60px -20px rgba(59, 130, 246, 0.1);
+  transform: translateY(-3px);
+}
+
+.btn-glow {
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.2),
+    0 8px 30px -8px rgba(59, 130, 246, 0.2);
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.btn-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(96, 165, 250, 0.4),
+    0 12px 40px -8px rgba(59, 130, 246, 0.3);
+  transform: scale(1.03);
+}
+.btn-glow:active {
+  transform: scale(0.97);
+}
+
+.mask-fade {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* Infinite logo/tech-stack marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+.animate-spin-slow-reverse {
+  animation: spin-slow 24s linear infinite reverse;
+}
