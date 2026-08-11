@@ -1,5 +1,3 @@
-import { useRef, useState } from 'react';
-
 interface ArchitectureNodeProps {
   id: string;
   title: string;
