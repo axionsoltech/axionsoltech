@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import {
-  ArrowUpRight,
   ArrowRight,
   Layers3,
   ShieldCheck,
@@ -14,10 +13,7 @@ import {
   LayoutDashboard,
   Settings,
   CreditCard,
-  FileText,
   Bell,
-  Search,
-  CheckCircle2,
   MoreHorizontal,
 } from 'lucide-react';
 

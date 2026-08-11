@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import { Hero } from '../components/Hero';
 import { Intro } from '../components/Intro';
 import { HighlightsMarquee } from '../components/HighlightsMarquee';
@@ -15,7 +13,6 @@ import { FAQ } from '../components/FAQ';
 import { CTABand } from '../components/CTABand';
 import { SERVICES } from '../data/services';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { MaskedReveal } from '../components/Reveal';
 
 export default function HomePage() {
   usePageTitle('Software, Cloud & AI Engineering');

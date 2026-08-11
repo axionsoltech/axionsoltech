@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { motion, useScroll, useMotionValueEvent, useInView } from 'framer-motion';
+import { useScroll, useMotionValueEvent } from 'framer-motion';
 import { ArchitectureNode } from './ArchitectureNode';
 import { ArchitectureConnections } from './ArchitectureConnections';
 import { useDevice } from '../hooks/useDevice';

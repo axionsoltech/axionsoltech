@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Annotation } from './Annotation';
 import { useDevice } from '../hooks/useDevice';
 
 export function Intro() {

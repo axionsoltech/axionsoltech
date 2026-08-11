@@ -1,5 +1,5 @@
 import { useDevice } from '../hooks/useDevice';
-import { motion, useInView } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const ROW_1 = [
@@ -50,31 +50,6 @@ export function HighlightsMarquee() {
   const { reducedMotion } = useDevice();
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { margin: '20% 0px 20% 0px' });
-
-  const marqueeVariants: any = {
-    animate: {
-      x: [0, -1000],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: 'loop',
-          duration: 30,
-          ease: 'linear',
-        },
-      },
-    },
-    animateReverse: {
-      x: [-1000, 0],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: 'loop',
-          duration: 35,
-          ease: 'linear',
-        },
-      },
-    },
-  };
 
   return (
     <section
