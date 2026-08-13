@@ -47,7 +47,7 @@ export function Process() {
     >
       <div className="bg-grid pointer-events-none absolute inset-0 opacity-10" />
 
-      <div className="relative mx-auto w-[80%] max-w-4xl px-4 sm:px-6">
+      <div className="relative mx-auto w-full md:w-[80%] max-w-4xl px-4 sm:px-6">
         <div className="mb-20 text-center sm:mb-32">
           <p className="text-accent-soft mb-4 text-xs font-medium tracking-[0.2em] uppercase">
             How we work

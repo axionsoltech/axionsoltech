@@ -45,7 +45,7 @@ export default function AboutPage() {
       />
 
       <section className="border-border relative border-t py-20 sm:py-28">
-        <div className="mx-auto w-[75%] px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-border relative border-t py-20 sm:py-28">
-        <div className="mx-auto w-[75%] px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <div className="mb-14 max-w-xl">
             <p className="text-accent-soft mb-3 text-xs font-medium tracking-[0.2em] uppercase">
               What we stand for

@@ -44,7 +44,7 @@ export function EngagementModels() {
       {/* Ambient background glow */}
       <div className="bg-accent/5 pointer-events-none absolute top-1/2 left-1/2 h-[80vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 mx-auto w-[80%] max-w-7xl px-4 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <p className="text-accent-soft mb-6 text-xs font-medium tracking-[0.2em] uppercase">
             How we engage
@@ -63,11 +63,10 @@ export function EngagementModels() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className={`group relative flex flex-col rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2 sm:p-10 ${
-                model.highlighted
+              className={`group relative flex flex-col rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2 sm:p-10 ${model.highlighted
                   ? 'border-accent/40 bg-accent/5 border-2 shadow-[0_0_40px_rgba(var(--accent),0.15)] backdrop-blur-md'
                   : 'border-border bg-surface/50 hover:bg-surface border shadow-lg hover:border-white/10'
-              }`}
+                }`}
             >
               {model.highlighted && (
                 <div className="bg-bg border-accent/40 absolute -top-4 left-1/2 -translate-x-1/2 rounded-full border px-4 py-1 shadow-[0_0_20px_rgba(var(--accent),0.3)]">
@@ -78,11 +77,10 @@ export function EngagementModels() {
               )}
 
               <div
-                className={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-500 ${
-                  model.highlighted
+                className={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-500 ${model.highlighted
                     ? 'bg-accent/20 text-accent shadow-[0_0_15px_rgba(var(--accent),0.2)]'
                     : 'text-text-secondary bg-white/5 group-hover:bg-white/10 group-hover:text-white'
-                }`}
+                  }`}
               >
                 <model.icon className="h-5 w-5" aria-hidden="true" />
               </div>

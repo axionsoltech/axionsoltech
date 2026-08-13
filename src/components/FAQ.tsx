@@ -65,7 +65,7 @@ export function FAQ() {
       {/* Ambient background glow */}
       <div className="bg-accent/5 pointer-events-none absolute top-1/2 left-1/2 h-[80vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 mx-auto w-[80%] max-w-7xl px-4 sm:px-6">
+      <div className="relative z-10 mx-auto w-full md:w-[80%] max-w-7xl px-4 sm:px-6">
         <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center">
           <p className="text-accent-soft mb-6 text-xs font-medium tracking-[0.2em] uppercase">
             Common questions

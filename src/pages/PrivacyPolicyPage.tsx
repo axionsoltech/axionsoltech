@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
       <PageHero eyebrow="Legal" title="Privacy Policy" description="Last updated: January 2026" />
 
       <section className="relative pb-24 sm:pb-32">
-        <div className="text-text-secondary mx-auto w-[75%] max-w-3xl space-y-10 px-4 text-sm leading-relaxed sm:px-6">
+        <div className="text-text-secondary mx-auto w-full md:w-[75%] max-w-3xl space-y-10 px-4 text-sm leading-relaxed sm:px-6">
           <div>
             <h2 className="font-display text-text-primary mb-3 text-lg font-semibold">
               1. Overview

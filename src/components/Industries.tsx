@@ -12,7 +12,7 @@ export function Industries() {
     <section className="bg-bg border-border relative border-y py-16 md:py-32">
       <div className="bg-surface/30 pointer-events-none absolute inset-0" />
 
-      <div className="relative mx-auto w-[80%] max-w-7xl px-4 sm:px-6">
+      <div className="relative mx-auto w-full md:w-[80%] max-w-7xl px-4 sm:px-6">
         <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
           <div className="max-w-2xl">
             <p className="text-accent-soft mb-4 text-xs font-medium tracking-[0.2em] uppercase">

@@ -28,7 +28,7 @@ export default function ProductPage() {
       </PageHero>
 
       <section className="border-border relative border-t pt-16 pb-24">
-        <div className="mx-auto w-[75%] max-w-3xl px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] max-w-3xl px-4 sm:px-6">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function ProductPage() {
       </section>
 
       <section className="relative pb-24 sm:pb-32">
-        <div className="mx-auto w-[75%] px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {INSURADESK_FEATURES.map((feature, i) => (
               <motion.div

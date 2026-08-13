@@ -26,9 +26,9 @@ const SOCIALS = [
 export function Footer() {
   return (
     <footer className="border-border relative border-t">
-      <div className="mx-auto w-[80%] max-w-7xl px-4 py-16 sm:px-6">
-        <div className="mb-14 grid grid-cols-2 gap-10 sm:grid-cols-5">
-          <div className="col-span-2">
+      <div className="mx-auto w-full md:w-[80%] max-w-7xl px-4 py-16 sm:px-6">
+        <div className="mb-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
+          <div className="col-span-1 sm:col-span-2 md:col-span-2">
             <Logo />
             <p className="text-text-secondary mt-6 max-w-sm text-base leading-relaxed">
               Software, cloud, and AI engineering for teams who need to move fast without breaking

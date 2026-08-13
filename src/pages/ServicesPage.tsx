@@ -18,7 +18,7 @@ export default function ServicesPage() {
       />
 
       <section className="relative pb-12 sm:pb-16">
-        <div className="mx-auto w-[75%] px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <div className="border-border-strong bg-surface/70 mb-10 rounded-[2rem] border p-6 backdrop-blur sm:p-8">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">

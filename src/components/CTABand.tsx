@@ -27,7 +27,7 @@ export function CTABand({
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: false, margin: '-100px' }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 mx-auto flex w-[80%] max-w-7xl flex-col items-center px-4 text-center sm:px-6"
+        className="relative z-10 mx-auto flex w-full md:w-[80%] max-w-7xl flex-col items-center px-4 text-center sm:px-6"
       >
         <h2 className="font-display max-w-5xl text-4xl leading-[0.95] font-bold tracking-tighter break-words hyphens-auto uppercase sm:text-6xl md:text-[5rem] lg:text-[6.5rem]">
           {title}

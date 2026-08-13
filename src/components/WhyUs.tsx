@@ -193,7 +193,7 @@ export function WhyUs() {
       style={{ height: !reducedMotion ? `${POINTS.length * 100}vh` : 'auto' }}
     >
       <div
-        className={`${!reducedMotion ? 'sticky top-0 h-screen' : 'py-16 md:py-32'} mx-auto flex w-[80%] max-w-7xl flex-col overflow-hidden px-4 sm:px-6 lg:flex-row`}
+        className={`${!reducedMotion ? 'sticky top-0 h-screen' : 'py-16 md:py-32'} mx-auto flex w-full md:w-[80%] max-w-7xl flex-col overflow-hidden px-4 sm:px-6 lg:flex-row`}
       >
         {/* Left Sticky Content */}
         <div

@@ -24,7 +24,7 @@ export default function ServiceDetailPage() {
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto w-[75%] px-4 sm:px-6">
+        <div className="relative mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <Link
             to="/services"
             className="text-text-secondary hover:text-text-primary mb-8 inline-flex items-center gap-1.5 text-sm transition-colors"
@@ -50,7 +50,7 @@ export default function ServiceDetailPage() {
       </section>
 
       <section className="border-border relative border-t pt-16 pb-24">
-        <div className="mx-auto w-[75%] px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function ServiceDetailPage() {
       </section>
 
       <section className="border-border relative border-t pt-16 pb-24">
-        <div className="mx-auto w-[75%] px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <div className="mb-6 flex items-center justify-between gap-3">
             <h2 className="font-display text-text-primary text-xl font-semibold">
               Related services

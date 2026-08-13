@@ -27,7 +27,7 @@ export function PageHero({ eyebrow, title, description, children }: PageHeroProp
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto w-[80%] px-4 text-center sm:px-6">
+      <div className="relative mx-auto w-full md:w-[80%] px-4 text-center sm:px-6">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

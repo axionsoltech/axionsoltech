@@ -54,7 +54,7 @@ export function ServicesGrid({ services }: { services: ServiceDetail[] }) {
         <div className="bg-surface/20 pointer-events-none absolute inset-0" />
 
         {/* Header - Stays fixed in the sticky container */}
-        <div className="relative z-20 mb-8 w-full shrink-0 px-[5vw] sm:mb-12 lg:px-[17.5vw]">
+        <div className="relative z-20 mb-8 w-full shrink-0 px-3 md:px-[5vw] sm:mb-12 lg:px-[17.5vw]">
           <div className="flex items-end justify-between">
             <div>
               <p className="text-accent-soft mb-4 text-xs font-medium tracking-[0.2em] uppercase">
@@ -81,7 +81,7 @@ export function ServicesGrid({ services }: { services: ServiceDetail[] }) {
           <motion.div
             ref={trackRef}
             style={!reducedMotion ? { x } : {}}
-            className="flex h-full w-max items-center gap-6 px-[5vw] lg:gap-12 lg:px-[17.5vw]"
+            className="flex h-full w-max items-center gap-6 px-3 md:px-[5vw] lg:gap-12 lg:px-[17.5vw]"
           >
             {services.map((service, i) => {
               const Icon = service.icon;
@@ -216,7 +216,7 @@ export function ServicesGrid({ services }: { services: ServiceDetail[] }) {
         </div>
 
         {/* Progress Indicator */}
-        <div className="relative z-20 mx-auto mt-8 hidden w-[80%] max-w-7xl shrink-0 items-center gap-4 px-4 sm:px-6 lg:flex">
+        <div className="relative z-20 mx-auto mt-8 hidden w-full md:w-[80%] max-w-7xl shrink-0 items-center gap-4 px-4 sm:px-6 lg:flex">
           <div className="bg-border relative h-[2px] flex-1 overflow-hidden rounded-full">
             <motion.div
               className="bg-accent absolute top-0 bottom-0 left-0 rounded-full"

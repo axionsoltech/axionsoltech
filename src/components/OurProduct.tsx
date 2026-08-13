@@ -74,7 +74,7 @@ export function OurProduct() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 mx-auto flex w-[80%] max-w-7xl flex-1 flex-col">
+          <div className="relative z-10 mx-auto flex w-full px-3 md:px-0 md:w-[80%] max-w-7xl flex-1 flex-col">
             {/* Header Section (Fades out slightly as you scroll down) */}
             <motion.div
               style={{ opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0.3]) }}
@@ -165,7 +165,7 @@ export function OurProduct() {
                   >
                     {/* SCREEN 1: DASHBOARD */}
                     <div className="flex h-full w-1/3 flex-col gap-6 p-6 lg:p-8">
-                      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-6">
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-6">
                         {[
                           { icon: Activity, val: '99.99%', label: 'Uptime', trend: '+0.01%' },
                           { icon: Users, val: '1.2M', label: 'Active Users', trend: '+12.5%' },
@@ -218,7 +218,7 @@ export function OurProduct() {
                           </div>
                         </div>
 
-                        <div className="relative z-10 mt-4 flex flex-1 items-end gap-3 sm:gap-6">
+                        <div className="relative z-10 mt-4 flex flex-1 items-end gap-1 sm:gap-3 lg:gap-6">
                           {[40, 70, 45, 90, 65, 80, 50, 100, 85, 60, 75, 45].map((h, i) => (
                             <div
                               key={i}
@@ -249,9 +249,9 @@ export function OurProduct() {
                       </div>
 
                       <div className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02]">
-                        <div className="text-text-muted grid grid-cols-4 gap-4 border-b border-white/5 bg-white/[0.01] p-4 text-xs font-medium tracking-wider uppercase">
-                          <div className="col-span-2">Customer</div>
-                          <div>Plan</div>
+                        <div className="text-text-muted grid grid-cols-[1fr_auto] sm:grid-cols-4 gap-4 border-b border-white/5 bg-white/[0.01] p-4 text-xs font-medium tracking-wider uppercase">
+                          <div className="col-span-1 sm:col-span-2">Customer</div>
+                          <div className="hidden sm:block">Plan</div>
                           <div>Status</div>
                         </div>
                         <div className="flex flex-col overflow-y-auto">
@@ -289,9 +289,9 @@ export function OurProduct() {
                           ].map((cust, i) => (
                             <div
                               key={i}
-                              className="group grid cursor-pointer grid-cols-4 items-center gap-4 border-b border-white/5 p-4 transition-colors hover:bg-white/[0.02]"
+                              className="group grid cursor-pointer grid-cols-[1fr_auto] sm:grid-cols-4 items-center gap-4 border-b border-white/5 p-4 transition-colors hover:bg-white/[0.02]"
                             >
-                              <div className="col-span-2 flex items-center gap-3">
+                              <div className="col-span-1 sm:col-span-2 flex items-center gap-3">
                                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-xs font-bold text-white">
                                   {cust.name[0]}
                                 </div>
@@ -302,16 +302,15 @@ export function OurProduct() {
                                   <div className="text-text-secondary text-xs">{cust.email}</div>
                                 </div>
                               </div>
-                              <div className="text-text-secondary text-sm">{cust.plan}</div>
+                              <div className="text-text-secondary text-sm hidden sm:block">{cust.plan}</div>
                               <div className="flex items-center justify-between pr-4">
                                 <span
-                                  className={`rounded-full border px-2 py-1 font-mono text-[10px] ${
-                                    cust.status === 'Active'
+                                  className={`rounded-full border px-2 py-1 font-mono text-[10px] ${cust.status === 'Active'
                                       ? 'border-green-400/20 bg-green-400/10 text-green-400'
                                       : cust.status === 'Warning'
                                         ? 'border-yellow-400/20 bg-yellow-400/10 text-yellow-400'
                                         : 'border-red-400/20 bg-red-400/10 text-red-400'
-                                  }`}
+                                    }`}
                                 >
                                   {cust.status}
                                 </span>
@@ -394,7 +393,7 @@ export function OurProduct() {
 
       {/* Highlights (Standard scrolling section after sticky finishes) */}
       <section className="bg-surface border-border relative z-10 border-b pt-16 pb-16 sm:pt-32 sm:pb-32">
-        <div className="mx-auto w-[80%] max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[80%] max-w-7xl px-4 sm:px-6">
           <div className="grid gap-6 sm:grid-cols-3">
             {HIGHLIGHTS.map(({ title, description, icon: Icon }) => (
               <div

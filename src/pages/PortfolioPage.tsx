@@ -18,7 +18,7 @@ export default function PortfolioPage() {
       />
 
       <section className="relative pb-20 sm:pb-28">
-        <div className="mx-auto w-[75%] px-4 sm:px-6">
+        <div className="mx-auto w-full md:w-[75%] px-4 sm:px-6">
           <div className="border-border-strong bg-surface/70 mb-10 rounded-[2rem] border p-6 backdrop-blur sm:p-8">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">

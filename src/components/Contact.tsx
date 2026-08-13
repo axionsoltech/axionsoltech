@@ -20,7 +20,7 @@ export function Contact() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto w-[80%] px-4 sm:px-6">
+      <div className="relative mx-auto w-full md:w-[80%] px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

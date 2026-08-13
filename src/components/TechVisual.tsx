@@ -31,7 +31,7 @@ export function TechVisual({ scale = 1, opacity = 1 }: { scale?: any; opacity?: 
   return (
     <motion.div
       style={{ scale, opacity }}
-      className="border-border/50 relative flex h-[40vh] max-h-[500px] min-h-[350px] w-full flex-col overflow-hidden rounded-2xl border bg-[#0A0A0A]/80 font-mono text-sm shadow-2xl backdrop-blur-xl"
+      className="border-border/50 relative flex h-[35vh] md:h-[40vh] max-h-[500px] min-h-[180px] md:min-h-[350px] w-full flex-col overflow-hidden rounded-2xl border bg-[#0A0A0A]/80 font-mono text-sm shadow-2xl backdrop-blur-xl"
     >
       {/* Fake Mac Window Header */}
       <div className="flex h-10 items-center border-b border-white/5 bg-white/[0.02] px-4">

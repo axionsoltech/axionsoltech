@@ -30,7 +30,7 @@ export function CaseStudiesPreview() {
         <div className="bg-surface/20 pointer-events-none absolute inset-0" />
 
         {/* Header - Stays fixed in the sticky container */}
-        <div className="relative z-20 mx-auto mb-8 w-[80%] max-w-7xl shrink-0 px-4 sm:mb-12 sm:px-6">
+        <div className="relative z-20 mx-auto mb-8 w-full md:w-[80%] max-w-7xl shrink-0 px-4 sm:mb-12 sm:px-6">
           <div className="flex items-end justify-between">
             <div>
               <p className="text-accent-soft mb-4 text-xs font-medium tracking-[0.2em] uppercase">
@@ -122,7 +122,7 @@ export function CaseStudiesPreview() {
         </div>
 
         {/* Progress Indicator */}
-        <div className="relative z-20 mx-auto mt-8 hidden w-[80%] max-w-7xl shrink-0 items-center gap-4 px-4 sm:px-6 lg:flex">
+        <div className="relative z-20 mx-auto mt-8 hidden w-full md:w-[80%] max-w-7xl shrink-0 items-center gap-4 px-4 sm:px-6 lg:flex">
           <div className="bg-border relative h-[2px] flex-1 overflow-hidden rounded-full">
             <motion.div
               className="bg-accent absolute top-0 bottom-0 left-0 w-full origin-left"

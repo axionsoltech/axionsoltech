@@ -33,7 +33,7 @@ export function Hero() {
 
   return (
     <section ref={containerRef} id="top" className="bg-bg relative h-[150vh]">
-      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden pt-28 pb-12">
+      <div className="sticky top-0 flex h-[100dvh] w-full flex-col justify-start lg:justify-center overflow-hidden pt-24 lg:pt-28 pb-6 lg:pb-12">
         <motion.div
           style={{ opacity: bgOpacity }}
           className="bg-grid pointer-events-none absolute inset-0"
@@ -45,8 +45,8 @@ export function Hero() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 mx-auto mt-12 flex h-full w-[80%] max-w-7xl items-center px-4 sm:px-6">
-          <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="relative z-10 mx-auto mt-0 lg:mt-12 flex h-full w-full md:w-[80%] max-w-7xl items-start lg:items-center px-4 sm:px-6">
+          <div className="grid w-full items-center gap-6 lg:grid-cols-2 lg:gap-20 pt-2 lg:pt-0">
             {/* Text Content */}
             <motion.div
               style={{ scale: textScale, opacity: textOpacity, y: textY }}
@@ -57,14 +57,14 @@ export function Hero() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="border-border/50 bg-surface/30 text-text-secondary mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs shadow-sm backdrop-blur-md"
+                className="border-border/50 bg-surface/30 text-text-secondary mb-4 lg:mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs shadow-sm backdrop-blur-md"
               >
                 <Sparkles className="text-accent-soft h-3.5 w-3.5" aria-hidden="true" />
                 Software &amp; Cloud Engineering
               </motion.div>
 
               {/* Large Headline */}
-              <h1 className="font-display text-text-primary mb-8 text-5xl leading-[0.95] font-bold tracking-tighter sm:text-7xl lg:text-[5.5rem]">
+              <h1 className="font-display text-text-primary mb-4 lg:mb-8 text-4xl leading-[0.95] font-bold tracking-tighter sm:text-5xl lg:text-[5.5rem]">
                 <div className="overflow-hidden pb-2">
                   <motion.div variants={lineVariants} initial="hidden" animate="show">
                     We engineer
@@ -96,7 +96,7 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="text-text-secondary max-w-lg text-lg leading-relaxed font-medium sm:text-xl"
+                className="text-text-secondary max-w-lg text-base leading-relaxed font-medium sm:text-xl"
               >
                 Partnering with ambitious founders and enterprises to design, build, and deploy
                 products across web, mobile, cloud, and AI.
@@ -106,12 +106,12 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="mt-10 flex flex-wrap items-center gap-4"
+                className="mt-4 lg:mt-10 flex flex-wrap items-center gap-3 lg:gap-4"
               >
                 <Link
                   to="/contact"
                   data-magnetic="true"
-                  className="bg-accent btn-glow hover:bg-accent-light inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold text-white transition-all"
+                  className="bg-accent btn-glow hover:bg-accent-light inline-flex items-center gap-2 rounded-full px-6 lg:px-8 py-3 lg:py-4 text-sm font-semibold text-white transition-all"
                 >
                   Start a project
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -119,7 +119,7 @@ export function Hero() {
                 <a
                   href="#services"
                   data-magnetic="true"
-                  className="border-border bg-surface/50 text-text-primary hover:bg-surface inline-flex items-center gap-2 rounded-full border px-8 py-4 text-sm font-semibold backdrop-blur-sm transition-all"
+                  className="border-border bg-surface/50 text-text-primary hover:bg-surface inline-flex items-center gap-2 rounded-full border px-6 lg:px-8 py-3 lg:py-4 text-sm font-semibold backdrop-blur-sm transition-all"
                 >
                   Our Services
                   <ChevronRight className="text-text-secondary h-4 w-4" aria-hidden="true" />

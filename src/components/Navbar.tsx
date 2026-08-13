@@ -46,7 +46,7 @@ export function Navbar() {
           className={`flex items-center justify-between transition-all duration-500 ${
             isScrolled
               ? 'bg-surface/85 border-border-strong w-full max-w-4xl rounded-full border px-6 py-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.5)] backdrop-blur-xl'
-              : 'w-[80%] max-w-7xl border-transparent bg-transparent px-0 py-0'
+              : 'w-full px-6 md:w-[80%] md:px-0 max-w-7xl border-transparent bg-transparent py-0'
           }`}
         >
           <Link

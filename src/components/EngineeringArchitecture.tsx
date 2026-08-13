@@ -70,7 +70,7 @@ export function EngineeringArchitecture() {
       </div>
 
       {/* Desktop Layout (Sticky/Scroll) */}
-      <div className="relative hidden lg:block" ref={containerRef} style={{ height: '400vh' }}>
+      <div className="relative hidden md:block" ref={containerRef} style={{ height: '400vh' }}>
         {/* Sticky Stage */}
         <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
           {/* Background Pattern */}
@@ -83,7 +83,7 @@ export function EngineeringArchitecture() {
             }}
           />
 
-          <div className="z-10 mx-auto flex w-[80%] max-w-7xl items-center justify-between">
+          <div className="z-10 mx-auto flex w-full md:w-[80%] max-w-7xl items-center justify-between">
             {/* Left: Sticky Information Stage */}
             <div className="flex w-[35%] flex-col justify-center">
               <p className="text-accent-soft mb-6 text-xs font-medium tracking-[0.2em] uppercase">
